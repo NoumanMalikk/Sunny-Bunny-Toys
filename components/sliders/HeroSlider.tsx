@@ -121,14 +121,15 @@ export function HeroSlider({ slides, className, autoPlayIntervalMs = 7000 }: Her
               sizes="100vw"
             />
           ) : null}
-          <div className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/55 to-navy/20" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/55 to-transparent md:via-navy/45" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-transparent to-navy/10" aria-hidden="true" />
         </motion.div>
       </AnimatePresence>
 
       <div className="relative z-10 flex h-full flex-col justify-end px-6 pb-8 pt-24 md:px-12 md:pb-12">
         <div className="max-w-2xl">
           {activeSlide.eyebrow ? <p className="eyebrow mb-3 text-sunshine">{activeSlide.eyebrow}</p> : null}
-          <h1 className="font-display text-4xl leading-tight text-cloud md:text-5xl lg:text-6xl">
+          <h1 className="font-display text-4xl leading-[1.05] tracking-tight text-cloud md:text-6xl lg:text-7xl">
             {activeSlide.title}
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-cloud/90 md:text-lg">

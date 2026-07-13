@@ -73,8 +73,9 @@ const slides: [HeroSlide, HeroSlide, HeroSlide] = [
 
 export function HeroSection() {
   return (
-    <section aria-label={`${brand.shortName} hero`} className="relative">
-      <HeroSlider slides={slides} className="rounded-none md:rounded-[var(--radius-hero)]" />
+    <section aria-label={`${brand.shortName} hero`} className="relative isolate overflow-hidden">
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-28 bg-gradient-to-b from-cream/40 to-transparent" />
+      <HeroSlider slides={slides} className="rounded-none" />
     </section>
   );
 }

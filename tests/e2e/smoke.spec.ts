@@ -68,7 +68,7 @@ test.describe("Sunny Bunny Toy Co. smoke tests", () => {
           title: "Honeyhop Plush Bunny, 12 Inch, Butter Yellow",
           price: 18.99,
           quantity: 1,
-          image: "/products/honeyhop-plush-bunny-12-inch/main.svg",
+          image: "/products/honeyhop-plush-bunny-12-inch/main.png",
           ageMinimum: 0,
           ageMaximum: 6,
           warningText: null,

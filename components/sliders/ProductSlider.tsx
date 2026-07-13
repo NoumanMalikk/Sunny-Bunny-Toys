@@ -109,10 +109,10 @@ export function ProductSlider({
           {products.map((product, index) => (
             <li
               key={product.id}
-              className="min-w-0 shrink-0 grow-0 basis-[80%] sm:basis-[45%] lg:basis-[23%]"
+              className="min-w-0 shrink-0 grow-0 basis-[80%] sm:basis-[45%] lg:basis-[23%] [&>*]:h-full"
               aria-hidden={index !== selectedIndex ? undefined : undefined}
             >
-              <ProductCard product={product} priority={index < 4} />
+              <ProductCard product={product} priority={index < 4} className="h-full" />
             </li>
           ))}
         </ul>

@@ -67,31 +67,32 @@ export function ProductCard({ product, className, priority = false }: ProductCar
     <>
       <Announcer message={announcement} />
       <article className={cn("product-card group relative", className)}>
-        <Link href={`/product/${product.slug}`} className="flex h-full flex-col gap-3">
-          <div className="product-card-image relative">
+        <Link href={`/product/${product.slug}`} className="flex h-full flex-col">
+          <div className="product-card-image">
             {mainImage ? (
               <Image
                 src={mainImage.src}
                 alt={mainImage.alt}
-                width={400}
-                height={400}
+                width={480}
+                height={480}
                 priority={priority}
-                className="object-contain"
+                className="object-contain transition-transform duration-[var(--motion-ui)] group-hover:scale-[1.03]"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
             ) : null}
-            <div className="absolute left-2 top-2 flex flex-wrap gap-1.5">
+            <div className="absolute left-2 top-2 z-10 flex max-w-[75%] flex-wrap gap-1.5">
               <AgeBadge ageMinimum={product.ageMinimum} ageMaximum={product.ageMaximum} />
               <WarningIndicator
                 warningRequired={product.warningRequired}
                 warningText={product.warningText}
               />
             </div>
-            <div className="absolute right-2 top-2 flex gap-1 opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
+            <div className="absolute right-2 top-2 z-10 flex gap-1 opacity-100 md:opacity-0 md:transition-opacity md:group-hover:opacity-100 md:group-focus-within:opacity-100">
               <Button
                 type="button"
                 variant="secondary"
                 size="sm"
-                className="size-9 p-0"
+                className="size-9 border border-border/80 bg-cloud/95 p-0 shadow-soft"
                 aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
                 aria-pressed={isWishlisted}
                 onClick={handleWishlist}
@@ -102,7 +103,7 @@ export function ProductCard({ product, className, priority = false }: ProductCar
                 type="button"
                 variant="secondary"
                 size="sm"
-                className="size-9 p-0"
+                className="size-9 border border-border/80 bg-cloud/95 p-0 shadow-soft"
                 aria-label={`Quick view ${product.title}`}
                 onClick={handleQuickView}
               >
@@ -111,17 +112,19 @@ export function ProductCard({ product, className, priority = false }: ProductCar
             </div>
           </div>
 
-          <div className="flex flex-1 flex-col gap-2">
+          <div className="product-card-body">
             <Badge variant="category" className="w-fit">
               {categoryName(product.category)}
             </Badge>
-            <h3 className="line-clamp-title font-display text-base leading-snug text-navy">{product.title}</h3>
-            <p className="text-sm text-text-secondary">{detailLine}</p>
-            <p className="mt-auto font-ui text-lg font-bold tabular text-navy">{formatPrice(product.price)}</p>
+            <h3 className="line-clamp-title font-display text-[0.98rem] leading-snug text-navy md:text-base">
+              {product.title}
+            </h3>
+            <p className="product-card-detail line-clamp-1">{detailLine}</p>
+            <p className="product-card-price">{formatPrice(product.price)}</p>
           </div>
         </Link>
 
-        <div className="mt-3">
+        <div className="product-card-actions">
           {activation.canPurchase ? (
             <Button type="button" className="w-full" onClick={handleAddToCart}>
               <ShoppingBag className="size-4" aria-hidden="true" />

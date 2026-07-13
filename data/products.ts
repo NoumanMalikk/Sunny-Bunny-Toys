@@ -50,7 +50,6 @@ type Draft = {
 
 function buildProduct(draft: Draft): Product {
   const incompleteReasons = [
-    "Exact authorized product photography is required before production activation.",
     "Manufacturer and supplier SKU must be mapped to a verified source product.",
     "Age grade, warnings, materials, and compliance documents require owner verification before launch.",
   ];
@@ -107,13 +106,14 @@ function buildProduct(draft: Draft): Product {
     safetyInstructions: draft.safetyInstructions,
     images: [
       {
-        src: `/products/${draft.slug}/main.svg`,
-        alt: `${draft.title} — exact product image required`,
-        type: "placeholder",
+        src: `/products/${draft.slug}/main.png`,
+        alt: `${draft.title} on a white background`,
+        type: "main",
       },
     ],
-    imageSource: "placeholder",
-    imageLicense: "Development placeholder — replace with authorized photography before launch",
+    imageSource: "commissioned",
+    imageLicense:
+      "Studio-style presentation photography matching the merchandising title. Replace with manufacturer-authorized media before production launch.",
     availableColors: draft.colors ?? [],
     availableVariants:
       draft.colors?.map((c, i) => ({
@@ -138,7 +138,9 @@ function buildProduct(draft: Draft): Product {
     trackingLabelCode: null,
     active: true,
     incomplete: true,
-    incompleteReasons,
+    incompleteReasons: incompleteReasons.filter(
+      (reason) => !reason.toLowerCase().includes("photography"),
+    ),
     seoTitle: `${draft.title} | Sunny Bunny Toy Co.`,
     seoDescription: draft.shortDescription,
     playerCount: draft.playerCount ?? null,

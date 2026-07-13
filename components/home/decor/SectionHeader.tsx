@@ -37,7 +37,7 @@ export function SectionHeader({
         {eyebrow ? (
           <p className={cn("eyebrow mb-2", isDark ? "text-sunshine" : "text-mint")}>{eyebrow}</p>
         ) : null}
-        <h2 className={cn("font-display text-3xl leading-tight md:text-4xl", isDark ? "text-cloud" : "text-navy")}>
+        <h2 className={cn("font-display text-3xl leading-[1.12] tracking-tight md:text-5xl", isDark ? "text-cloud" : "text-navy")}>
           {title}
         </h2>
         {description ? (

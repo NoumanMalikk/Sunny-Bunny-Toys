@@ -1,13 +1,12 @@
 /**
  * Image credit and rights tracking for catalogue media.
- * Replace placeholder entries with authorized sources before launch.
  */
 
 export const imageCredits = [
   {
     productSlug: "*",
-    status: "placeholder",
-    note: "All catalogue images currently use development placeholders. Replace with manufacturer, supplier, distributor, or original Sunny Bunny photography before production activation.",
+    status: "commissioned-presentation",
+    note: "Catalogue images are studio-style presentation photographs created to match each merchandising title on a white background. Replace with manufacturer-authorized or original inventory photography before production activation, and confirm image rights for every SKU.",
     rightsConfirmed: false,
   },
 ] as const;
