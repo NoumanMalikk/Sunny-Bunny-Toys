@@ -1,8 +1,5 @@
 import Image from "next/image";
 import { cn } from "@/lib/utilities/cn";
-import { CloudCluster } from "@/components/home/decor/CloudDecor";
-import { PaperCutHills } from "@/components/home/decor/PaperCutHills";
-import { BunnyEarArch } from "@/components/home/decor/BunnyEarArch";
 
 export type HeroSceneVisualProps = {
   variant: "imagine" | "build" | "together";
@@ -10,59 +7,83 @@ export type HeroSceneVisualProps = {
   className?: string;
 };
 
-const variantBg = {
-  imagine: "from-[#FFF6E4] via-[#FFE08A]/45 to-[#9BE7CB]/35",
-  build: "from-[#D9F1FC] via-[#FFF8E9] to-[#F8D27A]/35",
-  together: "from-[#E7E1FF] via-[#FFF8E9] to-[#FFC4B8]/30",
-};
+const scenes = {
+  imagine: {
+    wash: "from-[#FFF3D6] via-[#FFE9A8] to-[#C8F0DD]",
+    glow: "bg-sunshine/40",
+    accent: "bg-mint/30",
+  },
+  build: {
+    wash: "from-[#E3F4FC] via-[#F7FBFF] to-[#FFE8B0]",
+    glow: "bg-sky/40",
+    accent: "bg-golden/30",
+  },
+  together: {
+    wash: "from-[#EDE8FF] via-[#FFF7F2] to-[#FFD8CE]",
+    glow: "bg-lavender/35",
+    accent: "bg-coral/25",
+  },
+} as const;
 
 export function HeroSceneVisual({ variant, productSlugs, className }: HeroSceneVisualProps) {
+  const scene = scenes[variant];
+  const [primary, secondary, tertiary] = productSlugs;
+
   return (
     <div
       className={cn(
         "absolute inset-0 overflow-hidden bg-gradient-to-br",
-        variantBg[variant],
+        scene.wash,
         className,
       )}
       aria-hidden="true"
     >
-      <div className="pointer-events-none absolute -right-10 top-10 h-56 w-56 rounded-full bg-sunshine/30 blur-3xl" />
-      <div className="pointer-events-none absolute -left-8 bottom-24 h-48 w-48 rounded-full bg-mint/25 blur-3xl" />
-      <CloudCluster />
-      <BunnyEarArch className="absolute left-1/2 top-[5%] h-16 w-40 -translate-x-1/2 opacity-90 md:h-20 md:w-52" />
+      <div className={cn("pointer-events-none absolute -right-16 top-0 h-[28rem] w-[28rem] rounded-full blur-3xl", scene.glow)} />
+      <div className={cn("pointer-events-none absolute bottom-10 left-[40%] h-64 w-64 rounded-full blur-3xl", scene.accent)} />
 
-      <div className="absolute inset-x-0 bottom-0 flex items-end justify-center gap-2 px-4 pb-16 md:gap-5 md:px-10 md:pb-24">
-        {productSlugs.map((slug, index) => {
-          const count = productSlugs.length;
-          const isFour = count === 4;
-          return (
-            <div
-              key={slug}
-              className={cn(
-                "relative overflow-hidden rounded-[22px] border border-white/80 bg-white shadow-[0_18px_40px_rgba(32,50,71,0.14)]",
-                isFour && index === 0 && "h-28 w-24 -rotate-6 md:h-48 md:w-36",
-                isFour && index === 1 && "z-10 h-36 w-28 -translate-y-2 md:h-56 md:w-40",
-                isFour && index === 2 && "z-10 h-36 w-28 -translate-y-2 md:h-56 md:w-40",
-                isFour && index === 3 && "h-28 w-24 rotate-6 md:h-48 md:w-36",
-                !isFour && index === 0 && "h-40 w-32 -rotate-6 md:h-56 md:w-44",
-                !isFour && index === 1 && "z-10 h-48 w-36 -translate-y-3 md:h-64 md:w-48",
-                !isFour && index === 2 && "h-40 w-32 rotate-6 md:h-56 md:w-44",
-              )}
-            >
+      {/* Soft architectural frame */}
+      <div className="pointer-events-none absolute inset-y-10 right-8 hidden w-[46%] rounded-[2.5rem] border border-white/50 bg-white/25 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)] backdrop-blur-[2px] lg:block" />
+
+      <div className="absolute inset-y-0 right-0 flex w-full items-center justify-center px-6 pt-16 pb-10 md:w-[54%] md:px-10 md:pt-10">
+        <div className="relative mx-auto grid w-full max-w-xl grid-cols-12 grid-rows-6 gap-3 md:gap-4">
+          {primary ? (
+            <div className="relative col-span-8 col-start-3 row-span-4 row-start-1 overflow-hidden rounded-[28px] bg-white shadow-[0_24px_60px_rgba(32,50,71,0.16)] ring-1 ring-black/5">
               <Image
-                src={`/products/${slug}/main.png`}
+                src={`/products/${primary}/main.png`}
                 alt=""
                 fill
-                className="object-contain p-2 md:p-3"
-                sizes="(max-width: 768px) 30vw, 20vw"
-                priority={index === 1}
+                priority
+                className="object-contain p-5 md:p-8"
+                sizes="(max-width: 768px) 70vw, 34vw"
               />
             </div>
-          );
-        })}
-      </div>
+          ) : null}
 
-      <PaperCutHills className="absolute bottom-0 left-0 right-0 h-24 md:h-36" />
+          {secondary ? (
+            <div className="relative col-span-5 col-start-1 row-span-3 row-start-4 overflow-hidden rounded-[24px] bg-white shadow-[0_18px_40px_rgba(32,50,71,0.14)] ring-1 ring-black/5">
+              <Image
+                src={`/products/${secondary}/main.png`}
+                alt=""
+                fill
+                className="object-contain p-4 md:p-5"
+                sizes="(max-width: 768px) 40vw, 18vw"
+              />
+            </div>
+          ) : null}
+
+          {tertiary ? (
+            <div className="relative col-span-5 col-start-8 row-span-3 row-start-4 overflow-hidden rounded-[24px] bg-white shadow-[0_18px_40px_rgba(32,50,71,0.14)] ring-1 ring-black/5">
+              <Image
+                src={`/products/${tertiary}/main.png`}
+                alt=""
+                fill
+                className="object-contain p-4 md:p-5"
+                sizes="(max-width: 768px) 40vw, 18vw"
+              />
+            </div>
+          ) : null}
+        </div>
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ const LAST_UPDATED = "2026-07-13";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Privacy Policy for Sunny Bunny Toys LLC — how adult purchaser data is collected, used and protected when shopping at Sunny Bunny Toy Co.",
+    "Privacy Policy for Sunny Bunny Toys LLC. how adult purchaser data is collected, used and protected when shopping at Sunny Bunny Toy Co.",
 };
 
 export default function PrivacyPage() {
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
     >
       <h2>Who this policy covers</h2>
       <p>
-        Our store is designed for <strong>adult purchasers</strong> — parents, guardians, grandparents, gift
+        Our store is designed for <strong>adult purchasers</strong>. parents, guardians, grandparents, gift
         buyers and other adults making purchasing decisions. We do not create child profiles and do not knowingly
         collect personal information from children under 13. Purchasing, accounts, contact forms, newsletter
         sign-up and customer communication are directed to adults.
@@ -30,23 +30,23 @@ export default function PrivacyPage() {
       <p>Depending on how you interact with the site, we may collect:</p>
       <ul>
         <li>
-          <strong>Contact and account information</strong> — name, email address, phone number if provided,
+          <strong>Contact and account information</strong>. name, email address, phone number if provided,
           shipping and billing addresses, and order references when you purchase, create an account or contact
           us.
         </li>
         <li>
-          <strong>Order information</strong> — products purchased, payment status, shipping selections, gift
+          <strong>Order information</strong>. products purchased, payment status, shipping selections, gift
           notes and safety acknowledgments recorded during checkout.
         </li>
         <li>
-          <strong>Communications</strong> — messages you send through our contact form or support channels.
+          <strong>Communications</strong>. messages you send through our contact form or support channels.
         </li>
         <li>
-          <strong>Newsletter information</strong> — email address and optional marketing consent preferences for
+          <strong>Newsletter information</strong>. email address and optional marketing consent preferences for
           adults who subscribe.
         </li>
         <li>
-          <strong>Technical information</strong> — device and browser type, IP address, pages visited and
+          <strong>Technical information</strong>. device and browser type, IP address, pages visited and
           similar usage data collected through cookies and similar technologies.
         </li>
       </ul>
@@ -68,13 +68,13 @@ export default function PrivacyPage() {
       </p>
       <ul>
         <li>
-          <strong>Stripe</strong> — payment processing and, when enabled, tax calculation
+          <strong>Stripe</strong>. payment processing and, when enabled, tax calculation
         </li>
         <li>
-          <strong>Supabase</strong> — database, authentication and order storage when configured
+          <strong>Supabase</strong>. database, authentication and order storage when configured
         </li>
         <li>
-          <strong>Resend</strong> — transactional and support email delivery when configured
+          <strong>Resend</strong>. transactional and support email delivery when configured
         </li>
       </ul>
       <p>

@@ -1,12 +1,22 @@
 import type { Product, ProductActivationResult } from "@/lib/types/product";
 import { storeMode } from "@/data/store-config";
 
-export function getProductActivationStatus(product: Product): ProductActivationResult {
+function hardBlockReasons(product: Product): string[] {
   const reasons: string[] = [];
 
   if (!product.active) {
     reasons.push("Product is marked inactive.");
   }
+
+  if (product.stockStatus === "out_of_stock" || product.stockStatus === "unavailable") {
+    reasons.push("Product is currently unavailable.");
+  }
+
+  return reasons;
+}
+
+function complianceReasons(product: Product): string[] {
+  const reasons: string[] = [];
 
   if (product.incomplete) {
     reasons.push(...product.incompleteReasons);
@@ -48,18 +58,26 @@ export function getProductActivationStatus(product: Product): ProductActivationR
     reasons.push("Tracking label information is required.");
   }
 
-  if (product.stockStatus === "out_of_stock" || product.stockStatus === "unavailable") {
-    reasons.push("Product is currently unavailable.");
+  return reasons;
+}
+
+/**
+ * Demo / storefront mode allows shopping for active in-stock products.
+ * Production mode still requires full compliance verification before purchase.
+ */
+export function getProductActivationStatus(product: Product): ProductActivationResult {
+  const hardBlocks = hardBlockReasons(product);
+  if (hardBlocks.length > 0) {
+    return { canPurchase: false, reasons: hardBlocks };
   }
 
-  // Production purchases require full verification.
-  // Demo browsing is allowed; paid checkout remains blocked without credentials + verification.
-  if (storeMode.mode === "production" && reasons.length > 0) {
-    return { canPurchase: false, reasons };
+  if (storeMode.mode !== "production") {
+    return { canPurchase: true, reasons: [] };
   }
 
-  if (reasons.length > 0) {
-    return { canPurchase: false, reasons };
+  const compliance = complianceReasons(product);
+  if (compliance.length > 0) {
+    return { canPurchase: false, reasons: compliance };
   }
 
   return { canPurchase: true, reasons: [] };
@@ -71,5 +89,5 @@ export function canAddToCart(product: Product): ProductActivationResult {
 
 export function formatAgeRange(min: number, max: number | null): string {
   if (max === null) return `Ages ${min}+`;
-  return `Ages ${min}–${max}`;
+  return `Ages ${min}-${max}`;
 }

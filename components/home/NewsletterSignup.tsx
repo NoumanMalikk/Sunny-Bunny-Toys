@@ -34,7 +34,7 @@ export function NewsletterSignup() {
       }
 
       setStatus("success");
-      setMessage("Thank you — check your inbox for a confirmation.");
+      setMessage("Thank you. check your inbox for a confirmation.");
       setEmail("");
       setMarketingConsent(false);
     } catch {
@@ -55,7 +55,7 @@ export function NewsletterSignup() {
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-cloud/85 md:text-base">
             Sign-up is for adults only. Get new arrivals, journal posts and seasonal gift ideas from{" "}
-            {brand.publicName} — no child profiles or personal data collected.
+            {brand.publicName}. no child profiles or personal data collected.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-4 text-left">

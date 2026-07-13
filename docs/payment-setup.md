@@ -1,6 +1,6 @@
 # Payment Setup
 
-Stripe integration for checkout. Demo mode is the default — no live charges until configured.
+Stripe integration for checkout. Demo mode is the default. no live charges until configured.
 
 ## Demo mode
 
@@ -37,8 +37,8 @@ Use test keys (`sk_test_`, `pk_test_`) in staging.
 
 The storefront supports:
 
-- **Stripe Checkout** — session created via `/api/checkout/create-session`
-- **Payment Element** — client-side payment step in checkout wizard (`components/checkout/steps/PaymentStep.tsx`)
+- **Stripe Checkout**. session created via `/api/checkout/create-session`
+- **Payment Element**. client-side payment step in checkout wizard (`components/checkout/steps/PaymentStep.tsx`)
 
 `app/(store)/checkout/page.tsx` sets `stripeConfigured` when secret key is present and mode is `production`.
 
@@ -64,7 +64,7 @@ Required events (configure in Stripe):
 ## Testing
 
 1. Use Stripe test cards in test mode
-2. Run `npm run test:e2e` — checkout smoke test verifies demo notice
+2. Run `npm run test:e2e`. checkout smoke test verifies demo notice
 3. Confirm webhook delivery in Stripe CLI:
 
 ```bash

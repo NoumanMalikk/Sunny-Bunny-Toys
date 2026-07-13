@@ -5,7 +5,7 @@ import { ShopListingBoundary } from "@/components/commerce/ShopListingBoundary";
 
 export const metadata: Metadata = {
   title: "Gifts Under $25",
-  description: `Thoughtful toy gifts under $25 from ${brand.publicName} — plush friends, games and creative starters.`,
+  description: `Thoughtful toy gifts under $25 from ${brand.publicName}. plush friends, games and creative starters.`,
 };
 
 export default function GiftsUnder25Page() {
@@ -15,7 +15,7 @@ export default function GiftsUnder25Page() {
         <p className="eyebrow">Gifts</p>
         <h1 className="mt-2 font-display text-4xl text-navy md:text-5xl">Gifts under $25</h1>
         <p className="mt-3 text-lg text-text-secondary">
-          Small but meaningful gifts — plush friends, beginner games and creative starters.
+          Small but meaningful gifts. plush friends, beginner games and creative starters.
           {giftConfig.giftNotesEnabled ? " Add a gift note at checkout." : " Verify age guidance on each product page."}
         </p>
       </header>

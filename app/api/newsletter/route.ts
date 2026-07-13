@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     console.info("[demo] Newsletter signup received for adult subscriber.");
     return Response.json({
       ok: true,
-      message: "Subscription received. Sign-up is for adults only — no child profiles collected.",
+      message: "Subscription received. Sign-up is for adults only. no child profiles collected.",
     });
   } catch {
     return Response.json({ ok: false, message: "Invalid request body." }, { status: 400 });

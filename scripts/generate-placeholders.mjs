@@ -45,7 +45,7 @@ function escapeXml(s) {
 
 function svgFor({ title, detail, color }) {
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-label="${escapeXml(title)} — exact product image required">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-label="${escapeXml(title)}. exact product image required">
   <rect width="1200" height="1200" fill="#FFFFFF"/>
   <rect x="80" y="80" width="1040" height="1040" rx="48" fill="#F3F6F5"/>
   <circle cx="600" cy="460" r="210" fill="${color}" opacity="0.9"/>

@@ -5,7 +5,7 @@ import { ShopListingBoundary } from "@/components/commerce/ShopListingBoundary";
 
 export const metadata: Metadata = {
   title: "Shop All Toys",
-  description: `Browse the full ${brand.publicName} catalogue — dolls, plush, pretend play, building sets, creative activities, puzzles and outdoor games.`,
+  description: `Browse the full ${brand.publicName} catalogue. dolls, plush, pretend play, building sets, creative activities, puzzles and outdoor games.`,
 };
 
 export default function ShopPage() {

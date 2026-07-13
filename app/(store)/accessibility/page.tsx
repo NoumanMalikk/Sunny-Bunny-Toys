@@ -8,7 +8,7 @@ const LAST_UPDATED = "2026-07-13";
 export const metadata: Metadata = {
   title: "Accessibility Statement",
   description:
-    "Accessibility Statement for Sunny Bunny Toy Co. — our commitment to WCAG 2.2 AA and how to report barriers.",
+    "Accessibility Statement for Sunny Bunny Toy Co. our commitment to WCAG 2.2 AA and how to report barriers.",
 };
 
 export default function AccessibilityPage() {
@@ -40,7 +40,7 @@ export default function AccessibilityPage() {
 
       <h2>Feedback and assistance</h2>
       <p>
-        If you encounter a barrier on our website — or need help completing a purchase — please contact us. We
+        If you encounter a barrier on our website. or need help completing a purchase. please contact us. We
         will try to provide the information or service through an alternative method while we work on a fix.
       </p>
       <ul>
@@ -52,7 +52,7 @@ export default function AccessibilityPage() {
           Phone: <a href={brand.phoneHref}>{brand.phone}</a>
         </li>
         <li>
-          <Link href="/contact">Contact form</Link> — select &ldquo;Website issue&rdquo;
+          <Link href="/contact">Contact form</Link>. select &ldquo;Website issue&rdquo;
         </li>
       </ul>
       <p>

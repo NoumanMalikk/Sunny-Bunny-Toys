@@ -65,7 +65,7 @@ export function SafetyStep({ data, onChange, onNext, onBack, errors }: CheckoutS
                 {product.smallParts || product.chokingHazard ? (
                   <li className="flex items-center gap-2">
                     <ShieldAlert className="size-4 text-warning" aria-hidden="true" />
-                    Small parts — choking hazard for children under 3
+                    Small parts. choking hazard for children under 3
                   </li>
                 ) : null}
               </ul>

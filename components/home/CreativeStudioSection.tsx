@@ -44,7 +44,7 @@ export function CreativeStudioSection() {
         <SectionHeader
           eyebrow="Arts & crafts"
           title="Welcome to the Sunny Studio"
-          description="Washable art sets, clay colors and giant coloring rolls — creative supplies with care instructions on every product page."
+          description="Washable art sets, clay colors and giant coloring rolls. creative supplies with care instructions on every product page."
           href="/arts-crafts"
           linkLabel="Shop arts & crafts"
           align="center"

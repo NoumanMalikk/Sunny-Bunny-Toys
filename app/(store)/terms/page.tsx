@@ -8,7 +8,7 @@ const LAST_UPDATED = "2026-07-13";
 export const metadata: Metadata = {
   title: "Terms and Conditions",
   description:
-    "Terms and Conditions for shopping at Sunny Bunny Toy Co., operated by Sunny Bunny Toys LLC — online retail terms for adult purchasers.",
+    "Terms and Conditions for shopping at Sunny Bunny Toy Co., operated by Sunny Bunny Toys LLC. online retail terms for adult purchasers.",
 };
 
 export default function TermsPage() {

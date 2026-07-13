@@ -36,7 +36,7 @@ export function ImaginativePlayEditorial() {
           </h2>
           <p className="mt-5 font-editorial text-lg leading-relaxed text-text-secondary md:text-xl">
             Turn an ordinary afternoon into a tea party, a market run or a cozy cottage adventure. Soft dolls,
-            plush friends and pretend-play sets invite open-ended stories — with age guidance and warnings
+            plush friends and pretend-play sets invite open-ended stories. with age guidance and warnings
             clearly listed on every product page.
           </p>
           <Button href="/collections/imaginative-play" size="lg" className="mt-8">

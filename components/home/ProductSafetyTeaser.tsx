@@ -21,7 +21,7 @@ export function ProductSafetyTeaser() {
           </h2>
           <p className="mt-3 text-base leading-relaxed text-text-secondary">
             Every active product includes age grades, applicable warnings, materials and care instructions.
-            Review packaging, instructions and warnings before use — and visit our safety hub for compliance
+            Review packaging, instructions and warnings before use. and visit our safety hub for compliance
             details and recall information.
           </p>
           <Button href="/product-safety" className="mt-6">

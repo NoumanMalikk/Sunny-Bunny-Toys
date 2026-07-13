@@ -7,15 +7,15 @@ Use images in this order of preference:
 1. **Manufacturer-provided** photography with written license
 2. **Supplier / distributor** catalog assets with license
 3. **Commissioned original** photography of the exact SKU in your inventory
-4. **Placeholder** — development only; blocks production purchase
+4. **Placeholder**. development only; blocks production purchase
 
 ## Requirements
 
-- **Exact product** — image must depict the SKU you sell (correct color, piece count, packaging)
+- **Exact product**. image must depict the SKU you sell (correct color, piece count, packaging)
 - **White or neutral background** for primary (`main`) catalogue images
-- **No hotlinking** — host all images in `public/products/<slug>/` or a CDN you control
-- **Alt text** — descriptive, includes product name and key detail (size, piece count)
-- **License on file** — record `imageSource` and `imageLicense` in product data
+- **No hotlinking**. host all images in `public/products/<slug>/` or a CDN you control
+- **Alt text**. descriptive, includes product name and key detail (size, piece count)
+- **License on file**. record `imageSource` and `imageLicense` in product data
 
 ## Placeholder rules
 

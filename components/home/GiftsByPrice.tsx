@@ -10,7 +10,7 @@ const tiers = [
   {
     id: "under-25",
     label: "Under $25",
-    description: "Thoughtful small gifts — plush friends, games and creative starters.",
+    description: "Thoughtful small gifts. plush friends, games and creative starters.",
     filter: (price: number) => price < 25,
     href: "/gifts?budget=under-25",
   },
@@ -40,7 +40,7 @@ export function GiftsByPrice() {
           description={
             giftConfig.giftNotesEnabled
               ? "Add a gift note at checkout to include a personal message with your order."
-              : "Browse gift ideas by budget — verify age guidance on each product page."
+              : "Browse gift ideas by budget. verify age guidance on each product page."
           }
           href="/gifts"
           linkLabel="Shop all gifts"

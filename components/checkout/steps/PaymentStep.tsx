@@ -25,7 +25,7 @@ export function PaymentStep({ onNext, onBack, stripeConfigured }: PaymentStepPro
       {isDemo ? (
         <DemoNotice
           title="Payment unavailable in demonstration mode"
-          message="Configure STRIPE_SECRET_KEY and NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY, then set NEXT_PUBLIC_STORE_MODE=production to enable Stripe Checkout. No card fields are shown here — payment completes on Stripe's secure hosted page when enabled."
+          message="Configure STRIPE_SECRET_KEY and NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY, then set NEXT_PUBLIC_STORE_MODE=production to enable Stripe Checkout. No card fields are shown here. payment completes on Stripe's secure hosted page when enabled."
         />
       ) : (
         <div className="rounded-[var(--radius-editorial)] border border-border bg-cloud p-6">

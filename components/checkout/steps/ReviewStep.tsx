@@ -58,7 +58,7 @@ export function ReviewStep({ data, onNext, onBack }: CheckoutStepProps) {
           {data.shipping.city}, {data.shipping.state} {data.shipping.postalCode}
         </p>
         <p className="mt-2 text-sm">
-          <strong>{shippingQuote.methodName}</strong> — {formatPrice(shippingQuote.amount)} · {shippingQuote.estimatedDays}
+          <strong>{shippingQuote.methodName}</strong>. {formatPrice(shippingQuote.amount)} · {shippingQuote.estimatedDays}
         </p>
       </section>
 

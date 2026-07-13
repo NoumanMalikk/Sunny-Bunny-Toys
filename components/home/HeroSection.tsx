@@ -9,7 +9,7 @@ const slides: [HeroSlide, HeroSlide, HeroSlide] = [
     eyebrow: "Welcome to Sunny Bunny",
     title: "Let the fun shine.",
     description:
-      "Discover soft dolls, plush friends and pretend-play sets that turn everyday moments into story-filled afternoons — curated for joyful imaginative play.",
+      "Discover soft dolls, plush friends and pretend-play sets curated for joyful imaginative play.",
     ctaLabel: "Shop Imaginative Play",
     ctaHref: "/collections/imaginative-play",
     secondaryCtaLabel: "Explore New Arrivals",
@@ -18,8 +18,8 @@ const slides: [HeroSlide, HeroSlide, HeroSlide] = [
       <HeroSceneVisual
         variant="imagine"
         productSlugs={[
-          "honeyhop-plush-bunny-12-inch",
           "daisy-mae-soft-doll-14-inch",
+          "honeyhop-plush-bunny-12-inch",
           "sunny-cottage-dollhouse-playset-20-piece",
         ]}
       />
@@ -30,7 +30,7 @@ const slides: [HeroSlide, HeroSlide, HeroSlide] = [
     eyebrow: "Build, Discover, Create",
     title: "Big ideas start small.",
     description:
-      "Wooden stacking arches, magnetic tiles, gear sets and discovery kits invite hands-on building — stack, connect and explore at their own pace.",
+      "Explore wooden toys, magnetic tiles and discovery kits made for hands-on building.",
     ctaLabel: "Shop Build & Learn",
     ctaHref: "/build-learn",
     secondaryCtaLabel: "Explore Creative Play",
@@ -39,10 +39,9 @@ const slides: [HeroSlide, HeroSlide, HeroSlide] = [
       <HeroSceneVisual
         variant="build"
         productSlugs={[
-          "sunrise-wooden-stacking-arches-eight-piece",
           "colorway-magnetic-building-tiles-64-piece",
+          "sunrise-wooden-stacking-arches-eight-piece",
           "busy-gears-construction-set-82-piece",
-          "junior-space-discovery-kit",
         ]}
       />
     ),
@@ -52,7 +51,7 @@ const slides: [HeroSlide, HeroSlide, HeroSlide] = [
     eyebrow: "Made for Time Together",
     title: "Bring everyone to the table.",
     description:
-      "Memory games, charades, floor puzzles and ring-toss sets make shared evenings easy — clear player counts and play times on every product page.",
+      "Find puzzles, card games and outdoor activities designed for shared family fun.",
     ctaLabel: "Shop Games & Puzzles",
     ctaHref: "/puzzles-games",
     secondaryCtaLabel: "Find a Gift",
@@ -61,9 +60,8 @@ const slides: [HeroSlide, HeroSlide, HeroSlide] = [
       <HeroSceneVisual
         variant="together"
         productSlugs={[
-          "meadow-memory-match-game-36-pairs",
           "happy-trails-family-charades-120-cards",
-          "garden-friends-floor-puzzle-48-piece",
+          "meadow-memory-match-game-36-pairs",
           "sunshine-ring-toss-game",
         ]}
       />
@@ -73,8 +71,7 @@ const slides: [HeroSlide, HeroSlide, HeroSlide] = [
 
 export function HeroSection() {
   return (
-    <section aria-label={`${brand.shortName} hero`} className="relative isolate overflow-hidden">
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-28 bg-gradient-to-b from-cream/40 to-transparent" />
+    <section aria-label={`${brand.shortName} hero`} className="relative isolate">
       <HeroSlider slides={slides} className="rounded-none" />
     </section>
   );

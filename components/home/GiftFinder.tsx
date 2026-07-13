@@ -13,9 +13,9 @@ type AgeChoice = "3-4" | "5-7" | "8-10" | "10-plus";
 type BudgetChoice = "under-25" | "under-50" | "special";
 
 const ageOptions: { value: AgeChoice; label: string; min: number; max: number | null }[] = [
-  { value: "3-4", label: "Ages 3–4", min: 3, max: 4 },
-  { value: "5-7", label: "Ages 5–7", min: 5, max: 7 },
-  { value: "8-10", label: "Ages 8–10", min: 8, max: 10 },
+  { value: "3-4", label: "Ages 3-4", min: 3, max: 4 },
+  { value: "5-7", label: "Ages 5-7", min: 5, max: 7 },
+  { value: "8-10", label: "Ages 8-10", min: 8, max: 10 },
   { value: "10-plus", label: "Ages 10+ & family", min: 10, max: null },
 ];
 
@@ -62,7 +62,7 @@ export function GiftFinder() {
       <SectionHeader
         eyebrow="Gift finder"
         title="Find a thoughtful gift"
-        description="For adults choosing a gift — select an age range, play interest and budget. We match catalogue products only; no personal data is collected."
+        description="For adults choosing a gift. select an age range, play interest and budget. We match catalogue products only; no personal data is collected."
         align="center"
       />
 
@@ -161,7 +161,7 @@ export function GiftFinder() {
               </ul>
             ) : (
               <p className="rounded-[var(--radius-card)] bg-soft-gray px-6 py-10 text-center text-text-secondary">
-                No exact matches in this combination — try a different interest or budget, or browse{" "}
+                No exact matches in this combination. try a different interest or budget, or browse{" "}
                 <Link href="/gifts" className="font-semibold text-deep-mint underline-offset-2 hover:underline">
                   all gifts
                 </Link>

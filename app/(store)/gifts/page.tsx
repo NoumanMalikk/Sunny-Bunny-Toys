@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Gifts",
-  description: `Find thoughtful toy gifts at ${brand.publicName} — browse by age, interest and budget, or shop gifts under $25 and $50.`,
+  description: `Find thoughtful toy gifts at ${brand.publicName}. browse by age, interest and budget, or shop gifts under $25 and $50.`,
 };
 
 export default function GiftsPage() {
@@ -17,7 +17,7 @@ export default function GiftsPage() {
           <p className="eyebrow">Gifts</p>
           <h1 className="mt-2 font-display text-4xl text-navy md:text-5xl">Gift finder & ideas</h1>
           <p className="mt-3 text-lg text-text-secondary">
-            For adults choosing a gift — use the finder below or browse curated price tiers. Every product includes
+            For adults choosing a gift. use the finder below or browse curated price tiers. Every product includes
             age guidance and applicable warnings.
             {giftConfig.giftNotesEnabled ? " Gift notes can be added at checkout." : null}
           </p>

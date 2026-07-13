@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { Product } from "@/lib/types/product";
-import { canAddToCart, getProductActivationStatus } from "@/lib/safety/product-activation";
+import { canAddToCart, getProductActivationStatus, formatAgeRange } from "@/lib/safety/product-activation";
 
 function createVerifiedProduct(overrides: Partial<Product> = {}): Product {
   return {
@@ -85,65 +85,33 @@ describe("getProductActivationStatus", () => {
     expect(result.reasons).toHaveLength(0);
   });
 
-  it("blocks purchase when product is incomplete", () => {
+  it("blocks inactive products", () => {
+    const result = getProductActivationStatus(createVerifiedProduct({ active: false }));
+    expect(result.canPurchase).toBe(false);
+    expect(result.reasons).toContain("Product is marked inactive.");
+  });
+
+  it("blocks out of stock products", () => {
+    const result = getProductActivationStatus(
+      createVerifiedProduct({ stockStatus: "out_of_stock" }),
+    );
+    expect(result.canPurchase).toBe(false);
+  });
+
+  it("allows incomplete catalogue products in demo mode", () => {
     const result = getProductActivationStatus(
       createVerifiedProduct({
         incomplete: true,
         incompleteReasons: ["Photography pending"],
-      }),
-    );
-    expect(result.canPurchase).toBe(false);
-    expect(result.reasons).toContain("Photography pending");
-  });
-
-  it("blocks purchase when compliance is not verified", () => {
-    const result = getProductActivationStatus(
-      createVerifiedProduct({ complianceVerified: false }),
-    );
-    expect(result.canPurchase).toBe(false);
-    expect(result.reasons).toContain("Compliance records are not verified.");
-  });
-
-  it("blocks purchase when CPC reference is missing", () => {
-    const result = getProductActivationStatus(
-      createVerifiedProduct({ cpcDocumentReference: null }),
-    );
-    expect(result.canPurchase).toBe(false);
-    expect(result.reasons).toContain("Children's Product Certificate reference is missing.");
-  });
-
-  it("blocks purchase when warning is required but missing", () => {
-    const result = getProductActivationStatus(
-      createVerifiedProduct({
-        warningRequired: true,
-        warningText: null,
-      }),
-    );
-    expect(result.canPurchase).toBe(false);
-    expect(result.reasons).toContain("Required warning text is missing.");
-  });
-
-  it("blocks purchase for placeholder images", () => {
-    const result = getProductActivationStatus(
-      createVerifiedProduct({
-        imageSource: "placeholder",
-        images: [{ src: "/products/test/main.svg", alt: "Test", type: "placeholder" }],
-      }),
-    );
-    expect(result.canPurchase).toBe(false);
-    expect(result.reasons).toContain("Exact authorized product photography is required.");
-  });
-
-  it("blocks purchase for pending manufacturer and SKU", () => {
-    const result = getProductActivationStatus(
-      createVerifiedProduct({
+        complianceVerified: false,
+        ageGradeVerified: false,
         manufacturer: "Pending verification",
         supplierSku: "PENDING-SB-001",
+        cpcDocumentReference: null,
+        trackingLabelCode: null,
       }),
     );
-    expect(result.canPurchase).toBe(false);
-    expect(result.reasons).toContain("Manufacturer must be verified.");
-    expect(result.reasons).toContain("Supplier SKU must be verified.");
+    expect(result.canPurchase).toBe(true);
   });
 });
 
@@ -156,12 +124,18 @@ describe("canAddToCart", () => {
 });
 
 describe("catalogue draft products", () => {
-  it("blocks purchase for all incomplete draft listings", async () => {
+  it("allows purchase for active catalogue products in demo mode", async () => {
     const { products } = await import("@/data/products");
     for (const product of products) {
       const result = canAddToCart(product);
-      expect(result.canPurchase).toBe(false);
-      expect(result.reasons.length).toBeGreaterThan(0);
+      expect(result.canPurchase).toBe(true);
     }
+  });
+});
+
+describe("formatAgeRange", () => {
+  it("formats open and closed ranges without em dashes", () => {
+    expect(formatAgeRange(3, null)).toBe("Ages 3+");
+    expect(formatAgeRange(5, 7)).toBe("Ages 5-7");
   });
 });

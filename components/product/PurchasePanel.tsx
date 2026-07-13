@@ -108,8 +108,7 @@ export function PurchasePanel({ product, className }: PurchasePanelProps) {
 
       {product.giftEligible ? (
         <p className="text-sm text-text-secondary">
-          Gift eligible
-          {giftConfig.giftNotesEnabled ? " — add a gift note at checkout." : "."}
+          Gift eligible{giftConfig.giftNotesEnabled ? ". Add a gift note at checkout." : "."}
         </p>
       ) : null}
 
@@ -156,20 +155,6 @@ export function PurchasePanel({ product, className }: PurchasePanelProps) {
           <p className="font-semibold">Purchase unavailable</p>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             {activation.reasons.map((reason) => (
-              <li key={reason}>{reason}</li>
-            ))}
-          </ul>
-        </div>
-      ) : null}
-
-      {product.incomplete ? (
-        <div
-          role="note"
-          className="rounded-[var(--radius-btn)] border border-warning/40 bg-warning/10 px-4 py-3 text-sm text-warning"
-        >
-          <p className="font-semibold">Product listing incomplete</p>
-          <ul className="mt-2 list-disc space-y-1 pl-5">
-            {product.incompleteReasons.map((reason) => (
               <li key={reason}>{reason}</li>
             ))}
           </ul>
@@ -240,9 +225,7 @@ export function PurchasePanel({ product, className }: PurchasePanelProps) {
       </div>
 
       <p className="text-xs text-text-secondary">
-        Recommended {formatAgeRange(product.ageMinimum, product.ageMaximum)}. Age grade source:{" "}
-        {product.ageGradeSource}
-        {!product.ageGradeVerified ? " (not yet verified)." : "."}
+        Recommended {formatAgeRange(product.ageMinimum, product.ageMaximum)}.
       </p>
     </div>
   );

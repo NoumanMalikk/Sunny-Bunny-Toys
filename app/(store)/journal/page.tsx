@@ -6,7 +6,7 @@ import { brand } from "@/data/store-config";
 export const metadata: Metadata = {
   title: "Sunny Bunny Journal",
   description:
-    "Playful guides from Sunny Bunny Toy Co. — choosing age-appropriate toys, planning family game nights and organizing creative supplies at home.",
+    "Playful guides from Sunny Bunny Toy Co. choosing age-appropriate toys, planning family game nights and organizing creative supplies at home.",
 };
 
 export default function JournalPage() {
@@ -16,7 +16,7 @@ export default function JournalPage() {
         <p className="eyebrow mb-3 text-mint">Sunny Bunny Journal</p>
         <h1 className="font-display text-3xl text-navy md:text-4xl">Ideas for playful days</h1>
         <p className="mt-4 text-base leading-relaxed text-text-secondary">
-          Thoughtful guides for adult purchasers — no medical, therapeutic or guaranteed developmental claims,
+          Thoughtful guides for adult purchasers. no medical, therapeutic or guaranteed developmental claims,
           just practical inspiration from {brand.publicName}.
         </p>
       </header>

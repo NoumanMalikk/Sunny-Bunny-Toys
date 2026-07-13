@@ -5,7 +5,7 @@ import { ShopListingBoundary } from "@/components/commerce/ShopListingBoundary";
 
 export const metadata: Metadata = {
   title: "Gifts Under $50",
-  description: `Gift-worthy toys under $50 from ${brand.publicName} — building sets, art kits and family games.`,
+  description: `Gift-worthy toys under $50 from ${brand.publicName}. building sets, art kits and family games.`,
 };
 
 export default function GiftsUnder50Page() {

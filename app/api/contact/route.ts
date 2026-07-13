@@ -81,7 +81,7 @@ export async function POST(request: Request) {
     // Connect to Resend or your support inbox in production.
     return Response.json({
       ok: true,
-      message: "Thank you — your message has been received. We will respond as soon as we can.",
+      message: "Thank you. your message has been received. We will respond as soon as we can.",
     });
   } catch {
     return Response.json({ ok: false, message: "Invalid request body." }, { status: 400 });

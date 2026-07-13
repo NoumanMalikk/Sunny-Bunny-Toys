@@ -114,7 +114,7 @@ export const playStyles: {
 export const ageGroups = [
   {
     id: "3-4",
-    label: "Ages 3–4",
+    label: "Ages 3-4",
     href: "/shop-by-age/3-4",
     min: 3,
     max: 4,
@@ -122,7 +122,7 @@ export const ageGroups = [
   },
   {
     id: "5-7",
-    label: "Ages 5–7",
+    label: "Ages 5-7",
     href: "/shop-by-age/5-7",
     min: 5,
     max: 7,
@@ -130,7 +130,7 @@ export const ageGroups = [
   },
   {
     id: "8-10",
-    label: "Ages 8–10",
+    label: "Ages 8-10",
     href: "/shop-by-age/8-10",
     min: 8,
     max: 10,

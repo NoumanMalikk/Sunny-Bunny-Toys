@@ -227,7 +227,7 @@ export function CheckoutWizard({ stripeConfigured }: CheckoutWizardProps) {
         {isDemo ? (
           <DemoNotice
             className="mb-8"
-            message="Demonstration mode — forms validate and the full checkout flow is testable, but payment, order fulfillment, and confirmation emails are disabled."
+            message="Demonstration mode. forms validate and the full checkout flow is testable, but payment, order fulfillment, and confirmation emails are disabled."
           />
         ) : null}
         {renderStep()}

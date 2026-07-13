@@ -8,7 +8,7 @@ const LAST_UPDATED = "2026-07-13";
 export const metadata: Metadata = {
   title: "Product Safety",
   description:
-    "Product safety guidance from Sunny Bunny Toy Co. — age grading, warnings, supervision, magnets, batteries, recalls and how to report concerns.",
+    "Product safety guidance from Sunny Bunny Toy Co. age grading, warnings, supervision, magnets, batteries, recalls and how to report concerns.",
 };
 
 export default function ProductSafetyPage() {
@@ -16,7 +16,7 @@ export default function ProductSafetyPage() {
     <PolicyLayout
       title="Product Safety"
       lastUpdated={LAST_UPDATED}
-      intro={`${brand.publicName} provides safety information to help adult purchasers make informed choices. Every product is different — always review the physical product, packaging, instructions and warnings before use.`}
+      intro={`${brand.publicName} provides safety information to help adult purchasers make informed choices. Every product is different. always review the physical product, packaging, instructions and warnings before use.`}
     >
       <p>
         <strong>Always review the physical product, packaging, instructions and warnings before use.</strong>{" "}

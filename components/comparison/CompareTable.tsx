@@ -48,7 +48,7 @@ const compareRows: CompareRow[] = [
   {
     id: "pieceCount",
     label: "Piece count",
-    getValue: (product) => (product.pieceCount ? String(product.pieceCount) : "—"),
+    getValue: (product) => (product.pieceCount ? String(product.pieceCount) : " - "),
   },
   { id: "material", label: "Material", getValue: (product) => product.material },
   {
@@ -227,7 +227,7 @@ export function CompareTable({ products, className }: CompareTableProps) {
                 </th>
                 {products.map((product) => (
                   <td key={`${row.id}-${product.id}`} className="px-4 py-3 text-text">
-                    {row.getValue(product) ?? "—"}
+                    {row.getValue(product) ?? " - "}
                   </td>
                 ))}
               </tr>

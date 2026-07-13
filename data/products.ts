@@ -333,7 +333,7 @@ const drafts: Draft[] = [
     ageMinimum: 3,
     ageMaximum: null,
     warningText:
-      "WARNING: Choking hazard — small parts. Not for children under 3 years.",
+      "WARNING: Choking hazard. small parts. Not for children under 3 years.",
     warningRequired: true,
     chokingHazard: true,
     smallParts: true,
@@ -373,7 +373,7 @@ const drafts: Draft[] = [
     ageMinimum: 3,
     ageMaximum: null,
     warningText:
-      "WARNING: Choking hazard — small parts. Not for children under 3 years. For pretend play only — not for food or drink.",
+      "WARNING: Choking hazard. small parts. Not for children under 3 years. For pretend play only. not for food or drink.",
     warningRequired: true,
     chokingHazard: true,
     smallParts: true,
@@ -405,7 +405,7 @@ const drafts: Draft[] = [
     ageMinimum: 3,
     ageMaximum: null,
     warningText:
-      "WARNING: Choking hazard — small parts. Not for children under 3 years. Pretend play only — not for real cooking.",
+      "WARNING: Choking hazard. small parts. Not for children under 3 years. Pretend play only. not for real cooking.",
     warningRequired: true,
     chokingHazard: true,
     smallParts: true,
@@ -438,7 +438,7 @@ const drafts: Draft[] = [
     ageMinimum: 3,
     ageMaximum: null,
     warningText:
-      "WARNING: Choking hazard — small parts. Not for children under 3 years.",
+      "WARNING: Choking hazard. small parts. Not for children under 3 years.",
     warningRequired: true,
     chokingHazard: true,
     smallParts: true,
@@ -469,7 +469,7 @@ const drafts: Draft[] = [
     ageMinimum: 3,
     ageMaximum: null,
     warningText:
-      "WARNING: Choking hazard — small parts. Not for children under 3 years. Pretend play only — not a real medical device.",
+      "WARNING: Choking hazard. small parts. Not for children under 3 years. Pretend play only. not a real medical device.",
     warningRequired: true,
     chokingHazard: true,
     smallParts: true,
@@ -535,7 +535,7 @@ const drafts: Draft[] = [
     ageMinimum: 3,
     ageMaximum: 5,
     warningText:
-      "WARNING: Choking hazard — small parts may apply depending on final verified piece sizes. Follow physical packaging.",
+      "WARNING: Choking hazard. small parts may apply depending on final verified piece sizes. Follow physical packaging.",
     warningRequired: true,
     smallParts: true,
     material: "Wood and/or durable plastic (pending verification)",
@@ -604,7 +604,7 @@ const drafts: Draft[] = [
     ageMinimum: 5,
     ageMaximum: null,
     warningText:
-      "WARNING: Choking hazard — small parts. Not for children under 3 years. Keep fingers clear of moving gears.",
+      "WARNING: Choking hazard. small parts. Not for children under 3 years. Keep fingers clear of moving gears.",
     warningRequired: true,
     chokingHazard: true,
     smallParts: true,
@@ -638,7 +638,7 @@ const drafts: Draft[] = [
     ageMinimum: 3,
     ageMaximum: null,
     warningText:
-      "WARNING: Choking hazard — small parts. Not for children under 3 years.",
+      "WARNING: Choking hazard. small parts. Not for children under 3 years.",
     warningRequired: true,
     chokingHazard: true,
     smallParts: true,
@@ -840,7 +840,7 @@ const drafts: Draft[] = [
     relatedProductIds: ["p22", "p23", "p20"],
     keyDetail: "48 pieces",
     playerCount: "1+",
-    playTimeMinutes: "15–30",
+    playTimeMinutes: "15-30",
     indoorOutdoor: "indoor",
   },
   {
@@ -865,8 +865,8 @@ const drafts: Draft[] = [
     pieceCount: 72,
     packageContents: ["72 cards forming 36 pairs"],
     careInstructions: "Keep cards dry and stored in the box.",
-    safetyInstructions: "Small cards — not for children under 3.",
-    warningText: "WARNING: Choking hazard — small parts. Not for children under 3 years.",
+    safetyInstructions: "Small cards. not for children under 3.",
+    warningText: "WARNING: Choking hazard. small parts. Not for children under 3 years.",
     warningRequired: true,
     chokingHazard: true,
     smallParts: true,
@@ -874,8 +874,8 @@ const drafts: Draft[] = [
     newArrival: true,
     relatedProductIds: ["p21", "p23", "p24"],
     keyDetail: "36 pairs / 72 cards",
-    playerCount: "2–4",
-    playTimeMinutes: "10–20",
+    playerCount: "2-4",
+    playTimeMinutes: "10-20",
   },
   {
     id: "p23",
@@ -907,8 +907,8 @@ const drafts: Draft[] = [
     featured: true,
     relatedProductIds: ["p22", "p24", "p21"],
     keyDetail: "120 cards",
-    playerCount: "3–8",
-    playTimeMinutes: "20–40",
+    playerCount: "3-8",
+    playTimeMinutes: "20-40",
     readingRequired: true,
   },
   {
@@ -939,7 +939,7 @@ const drafts: Draft[] = [
     relatedProductIds: ["p22", "p23", "p25"],
     keyDetail: "50 cards",
     playerCount: "1+",
-    playTimeMinutes: "15–45",
+    playTimeMinutes: "15-45",
     readingRequired: true,
     indoorOutdoor: "both",
   },
@@ -973,7 +973,7 @@ const drafts: Draft[] = [
     relatedProductIds: ["p26", "p24", "p23"],
     keyDetail: "Ring toss set",
     playerCount: "2+",
-    playTimeMinutes: "15–30",
+    playTimeMinutes: "15-30",
     indoorOutdoor: "both",
   },
   {

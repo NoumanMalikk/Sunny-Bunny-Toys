@@ -1,6 +1,6 @@
 # Product Safety
 
-Overview of U.S. children's product safety obligations for Sunny Bunny Toys LLC. **This document is guidance only — not legal advice.**
+Overview of U.S. children's product safety obligations for Sunny Bunny Toys LLC. **This document is guidance only. not legal advice.**
 
 ## Regulatory framework
 
@@ -12,7 +12,7 @@ Overview of U.S. children's product safety obligations for Sunny Bunny Toys LLC.
 
 ## Do not hardcode standard versions
 
-ASTM and CPSC rules are updated periodically. **Verify the current mandatory and recognized standard versions at launch** — do not rely on version numbers in this repo or in draft product data.
+ASTM and CPSC rules are updated periodically. **Verify the current mandatory and recognized standard versions at launch**. do not rely on version numbers in this repo or in draft product data.
 
 Before selling any children's product:
 
@@ -33,10 +33,10 @@ The storefront blocks purchase when compliance fields are incomplete (`lib/safet
 
 ## Product-specific considerations
 
-- **Small parts / choking** — age grading and warning text from manufacturer labels
-- **Magnets** — additional testing and warnings; `magnetsIncluded` products require `testReportReference`
-- **Paint and surface coatings** — lead content limits under CPSIA
-- **Plush / textiles** — flammability and labeling requirements
+- **Small parts / choking**. age grading and warning text from manufacturer labels
+- **Magnets**. additional testing and warnings; `magnetsIncluded` products require `testReportReference`
+- **Paint and surface coatings**. lead content limits under CPSIA
+- **Plush / textiles**. flammability and labeling requirements
 
 ## Import eFiling (July 8, 2026)
 

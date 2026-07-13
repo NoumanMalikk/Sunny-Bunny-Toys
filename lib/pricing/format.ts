@@ -8,7 +8,7 @@ export function formatPrice(amount: number, currency: string = "USD"): string {
 }
 
 export function formatPriceRange(min: number, max: number, currency = "USD"): string {
-  return `${formatPrice(min, currency)} – ${formatPrice(max, currency)}`;
+  return `${formatPrice(min, currency)} - ${formatPrice(max, currency)}`;
 }
 
 export function roundMoney(amount: number): number {

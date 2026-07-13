@@ -4,7 +4,7 @@ import { WishlistPageContent } from "@/components/commerce/WishlistPageContent";
 
 export const metadata: Metadata = {
   title: "Wishlist",
-  description: `Your saved ${brand.publicName} products — review age guidance and details before adding to cart.`,
+  description: `Your saved ${brand.publicName} products. review age guidance and details before adding to cart.`,
 };
 
 export default function WishlistPage() {

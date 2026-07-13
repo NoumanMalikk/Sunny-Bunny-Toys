@@ -19,9 +19,9 @@ type SubmitStepProps = CheckoutStepProps & {
 
 export function SubmitStep({ data, onBack, stripeConfigured }: SubmitStepProps) {
   const items = useCartStore((s) => s.items);
+  const clear = useCartStore((s) => s.clear);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [demoMessage, setDemoMessage] = useState("");
 
   const isDemo = storeMode.mode === "demo" || !stripeConfigured;
   const totalWeight = items.reduce((sum, item) => sum + item.quantity * 1.2, 0);
@@ -37,7 +37,6 @@ export function SubmitStep({ data, onBack, stripeConfigured }: SubmitStepProps) 
   const handleSubmit = async () => {
     setLoading(true);
     setError("");
-    setDemoMessage("");
 
     try {
       const idempotencyKey = `checkout-${Date.now()}-${crypto.randomUUID().slice(0, 8)}`;
@@ -66,22 +65,28 @@ export function SubmitStep({ data, onBack, stripeConfigured }: SubmitStepProps) 
         errors?: string[];
       };
 
-      if (result.demo || response.status === 503) {
-        setDemoMessage(
-          result.message ??
-            "Demonstration mode — checkout is disabled. No paid order was created.",
-        );
+      if (!response.ok || !result.ok || !result.url) {
+        setError(result.message ?? result.errors?.join(" ") ?? "Unable to complete checkout.");
         return;
       }
 
-      if (!response.ok || !result.ok) {
-        setError(result.message ?? result.errors?.join(" ") ?? "Unable to start checkout.");
-        return;
+      if (result.demo && result.orderRef) {
+        const demoSummary = {
+          orderRef: result.orderRef,
+          email: data.customer.email,
+          firstName: data.customer.firstName,
+          total: totals.total,
+          items: items.map((item) => ({
+            title: item.title,
+            quantity: item.quantity,
+            lineTotal: item.price * item.quantity,
+          })),
+        };
+        sessionStorage.setItem("sunny-bunny-demo-order", JSON.stringify(demoSummary));
+        clear();
       }
 
-      if (result.url) {
-        window.location.href = result.url;
-      }
+      window.location.href = result.url;
     } catch {
       setError("Unable to connect. Please try again.");
     } finally {
@@ -99,7 +104,7 @@ export function SubmitStep({ data, onBack, stripeConfigured }: SubmitStepProps) 
       </div>
 
       {isDemo ? (
-        <DemoNotice message="Submitting will validate your order but payment cannot be completed in demonstration mode. Configure Stripe credentials to enable live checkout." />
+        <DemoNotice message="Demo mode creates a practice order without collecting payment. Connect Stripe to accept live payments." />
       ) : (
         <p className="text-sm text-text-secondary">
           You will be redirected to Stripe to complete payment securely. Your order is not placed until payment is confirmed.
@@ -112,12 +117,6 @@ export function SubmitStep({ data, onBack, stripeConfigured }: SubmitStepProps) 
         </p>
       ) : null}
 
-      {demoMessage ? (
-        <div role="status" className="rounded-[var(--radius-btn)] border border-warning/30 bg-warning/5 p-4">
-          <p className="text-sm font-semibold text-warning">{demoMessage}</p>
-        </div>
-      ) : null}
-
       <div className="flex flex-wrap gap-3">
         <Button type="button" variant="ghost" onClick={onBack} disabled={loading}>
           Back
@@ -126,12 +125,12 @@ export function SubmitStep({ data, onBack, stripeConfigured }: SubmitStepProps) 
           {loading ? (
             <>
               <Loader2 className="size-4 animate-spin" aria-hidden="true" />
-              Processing…
+              Processing...
             </>
           ) : isDemo ? (
-            "Test checkout validation"
+            "Complete demo order"
           ) : (
-            "Place order & pay with Stripe"
+            "Place order and pay with Stripe"
           )}
         </Button>
       </div>

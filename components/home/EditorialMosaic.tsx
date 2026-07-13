@@ -23,7 +23,7 @@ export function EditorialMosaic() {
           A sunlit collection
         </h2>
         <p className="mx-auto mt-3 max-w-lg text-sm text-text-secondary md:text-base">
-          Product photography from the catalogue — each item on a clean white studio background.
+          Product photography from the catalogue. each item on a clean white studio background.
         </p>
       </div>
 

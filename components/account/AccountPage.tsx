@@ -26,7 +26,7 @@ export function AccountPage() {
             </p>
             <DemoNotice
               className="mt-8 text-left"
-              message="Demonstration mode — local order history is not persisted. Configure Supabase environment variables to enable accounts."
+              message="Demonstration mode. local order history is not persisted. Configure Supabase environment variables to enable accounts."
             />
           </>
         )}

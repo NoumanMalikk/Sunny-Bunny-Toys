@@ -18,7 +18,7 @@ export const journalArticles: JournalArticle[] = [
     content: [
       "Start with the verified age grade printed on the product page and packaging. Age guidance is based on manufacturer labeling and safety considerations, not guesses from appearance.",
       "Read applicable warnings before purchase. Small parts, magnets, batteries, and adult-supervision notes should be easy to find on every active product.",
-      "Match the toy to play style—stories, building, creating, puzzles, or outdoor play—rather than only to a trend or packaging design.",
+      "Match the toy to play style - stories, building, creating, puzzles, or outdoor play - rather than only to a trend or packaging design.",
       "Review piece counts, materials, and package contents so gift buyers know exactly what arrives.",
       "Always review the physical product, packaging, instructions, and warnings before use. No toy is suitable for every child.",
     ],

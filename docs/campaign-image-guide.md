@@ -1,10 +1,10 @@
 # Campaign Image Guide
 
-Rules for marketing, email, and social imagery — separate from catalogue product photography.
+Rules for marketing, email, and social imagery. separate from catalogue product photography.
 
 ## AI usage
 
-**AI tools may be used only for backgrounds and scene composition** — never to alter the product itself.
+**AI tools may be used only for backgrounds and scene composition**. never to alter the product itself.
 
 | Allowed | Not allowed |
 |---------|-------------|
@@ -20,7 +20,7 @@ Campaigns must feature products that exist in `data/products.ts` with verified S
 
 1. Start from **authorized product photography** ([image-sourcing.md](./image-sourcing.md))
 2. Place on an AI-generated or licensed background if needed
-3. Owner review — confirm product is unaltered and warnings/labels are legible if visible
+3. Owner review. confirm product is unaltered and warnings/labels are legible if visible
 4. Archive source files and approval date
 
 ## Sunny Bunny branding

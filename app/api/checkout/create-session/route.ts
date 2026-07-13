@@ -118,7 +118,7 @@ export async function POST(request: Request) {
         orderRef,
         createdAt: now,
         updatedAt: now,
-        status: "safety_hold",
+        status: "processing",
         paymentStatus: "demo_blocked",
         customer: data.customer,
         shippingAddress: data.shipping,
@@ -143,16 +143,14 @@ export async function POST(request: Request) {
 
       saveOrder(demoOrder);
 
-      return Response.json(
-        {
-          ok: false,
-          demo: true,
-          orderRef,
-          message:
-            "Demonstration mode — checkout is disabled. Configure STRIPE_SECRET_KEY and set NEXT_PUBLIC_STORE_MODE=production to accept payments.",
-        },
-        { status: 503 },
-      );
+      return Response.json({
+        ok: true,
+        demo: true,
+        orderRef,
+        url: `/checkout/success?orderRef=${encodeURIComponent(orderRef)}&demo=1`,
+        message:
+          "Demo order created. No payment was collected. Connect Stripe to accept live payments.",
+      });
     }
 
     if (!isStripeConfigured()) {

@@ -5,8 +5,8 @@ import { filterProducts } from "@/lib/utilities/filters";
 
 describe("formatAgeRange", () => {
   it("formats bounded age range", () => {
-    expect(formatAgeRange(3, 8)).toBe("Ages 3–8");
-    expect(formatAgeRange(6, 12)).toBe("Ages 6–12");
+    expect(formatAgeRange(3, 8)).toBe("Ages 3-8");
+    expect(formatAgeRange(6, 12)).toBe("Ages 6-12");
   });
 
   it("formats open-ended age range with plus", () => {
@@ -18,7 +18,7 @@ describe("formatAgeRange", () => {
 describe("age range overlap (filterProducts)", () => {
   const products = getActiveProducts();
 
-  it("includes products whose range overlaps filter 3–5", () => {
+  it("includes products whose range overlaps filter 3-5", () => {
     const filtered = filterProducts(products, { ageMin: 3, ageMax: 5 });
     expect(filtered.length).toBeGreaterThan(0);
 

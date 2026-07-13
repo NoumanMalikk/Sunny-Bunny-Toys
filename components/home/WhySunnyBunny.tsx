@@ -7,21 +7,21 @@ const trustCards = [
     icon: Camera,
     title: "Exact product photography",
     description:
-      "Every product page is designed for authorized photography before launch — what you see will match the verified listing.",
+      "Every product page is designed for authorized photography before launch. what you see will match the verified listing.",
     accent: "#FFD457",
   },
   {
     icon: ClipboardList,
     title: "Clear age guidance",
     description:
-      "Verified age grades, piece counts, materials and applicable warnings appear on each product page — read before purchase.",
+      "Verified age grades, piece counts, materials and applicable warnings appear on each product page. read before purchase.",
     accent: "#79C9F4",
   },
   {
     icon: ShieldCheck,
     title: "Detailed product information",
     description:
-      "Package contents, care instructions and safety notes are listed for every active product — no hidden surprises.",
+      "Package contents, care instructions and safety notes are listed for every active product. no hidden surprises.",
     accent: "#55CFA8",
   },
   {
@@ -39,7 +39,7 @@ export function WhySunnyBunny() {
       <SectionHeader
         eyebrow="Why Sunny Bunny"
         title="Thoughtful toys, transparent details"
-        description="We focus on clear product information, verified age guidance and a secure shopping experience — so adults can choose with confidence."
+        description="We focus on clear product information, verified age guidance and a secure shopping experience. so adults can choose with confidence."
         align="center"
       />
 

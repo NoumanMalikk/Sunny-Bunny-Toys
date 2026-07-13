@@ -40,7 +40,7 @@ export function BuildDiscoverBento() {
       <SectionHeader
         eyebrow="Build & discover"
         title="Stack, connect and explore"
-        description="Building tiles, gear sets, discovery kits and dig projects — piece counts and age grades listed on each product page."
+        description="Building tiles, gear sets, discovery kits and dig projects. piece counts and age grades listed on each product page."
         href="/build-learn"
         linkLabel="Shop Build & Learn"
       />

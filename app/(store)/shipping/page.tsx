@@ -31,7 +31,7 @@ export default function ShippingPage() {
           <ul>
             {shippingConfig.demoMethods.map((method) => (
               <li key={method.id}>
-                <strong>{method.name}</strong> — {method.description} Estimated delivery:{" "}
+                <strong>{method.name}</strong>. {method.description} Estimated delivery:{" "}
                 {method.estimatedDays}. Starting at {formatPrice(method.baseRate)}.
               </li>
             ))}

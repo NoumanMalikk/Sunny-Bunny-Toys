@@ -4,10 +4,10 @@ Comprehensive pre-launch checklist for Sunny Bunny Toy Co. **None of these items
 
 ## Brand and legal
 
-- [ ] **Trademark search** — "Sunny Bunny Toy Co." / "Sunny Bunny Toys" clearance in relevant classes
-- [ ] **Sunny Bunnies conflict review** — confirm no confusion with the *Sunny Bunnies* children's entertainment property (characters, trade dress, sound marks)
+- [ ] **Trademark search**. "Sunny Bunny Toy Co." / "Sunny Bunny Toys" clearance in relevant classes
+- [ ] **Sunny Bunnies conflict review**. confirm no confusion with the *Sunny Bunnies* children's entertainment property (characters, trade dress, sound marks)
 - [ ] **Domain registered** and DNS configured
-- [ ] **Legal entity** — Sunny Bunny Toys LLC filings current
+- [ ] **Legal entity**. Sunny Bunny Toys LLC filings current
 - [ ] Privacy policy, terms, returns, and shipping pages reviewed by counsel
 - [ ] **Do not claim trademark clearance is done** until attorney confirms
 
@@ -21,7 +21,7 @@ Comprehensive pre-launch checklist for Sunny Bunny Toy Co. **None of these items
 - [ ] SSL/HTTPS active
 - [ ] `CRON_SECRET` set if using scheduled jobs
 
-## All 26 products — per-SKU verification
+## All 26 products. per-SKU verification
 
 For **each** product in `data/products.ts`:
 
@@ -34,7 +34,7 @@ For **each** product in `data/products.ts`:
 - [ ] `ageGradeVerified: true` with `ageGradeVerifiedAt` date
 - [ ] Warning text matches label (if `warningRequired`)
 - [ ] Choking hazard / small parts / magnet flags correct
-- [ ] Authorized images — no placeholders; license on file
+- [ ] Authorized images. no placeholders; license on file
 - [ ] `imageSource` and `imageLicense` documented
 - [ ] `complianceVerified: true`
 - [ ] CPC on file (if `cpcRequired`)

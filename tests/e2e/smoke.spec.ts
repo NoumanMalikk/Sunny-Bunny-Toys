@@ -38,10 +38,11 @@ test.describe("Sunny Bunny Toy Co. smoke tests", () => {
     await expect(page.getByRole("button", { name: /^saved$/i })).toBeVisible();
   });
 
-  test("cart add is blocked for incomplete products with clear message", async ({ page }) => {
+  test("product page allows add to cart in demo mode", async ({ page }) => {
     await page.goto("/product/honeyhop-plush-bunny-12-inch");
-    await expect(page.getByRole("button", { name: /add to cart unavailable/i })).toBeVisible();
-    await expect(page.getByRole("alert").filter({ hasText: /purchase unavailable/i })).toBeVisible();
+    await expect(page.getByRole("button", { name: /^add to cart$/i }).first()).toBeVisible();
+    await page.getByRole("button", { name: /^add to cart$/i }).first().click();
+    await expect(page.getByText(/added to cart/i).first()).toBeVisible({ timeout: 5000 });
   });
 
   test("checkout opens with demo notice when cart is seeded", async ({ page }) => {
@@ -63,27 +64,27 @@ test.describe("Sunny Bunny Toy Co. smoke tests", () => {
       {
         cartKey: CART_STORAGE_KEY,
         item: {
-          productId: "sb-dp-001",
+          productId: "p01",
           slug: "honeyhop-plush-bunny-12-inch",
           title: "Honeyhop Plush Bunny, 12 Inch, Butter Yellow",
-          price: 18.99,
+          price: 24,
           quantity: 1,
           image: "/products/honeyhop-plush-bunny-12-inch/main.png",
-          ageMinimum: 0,
-          ageMaximum: 6,
+          ageMinimum: 3,
+          ageMaximum: null,
           warningText: null,
           warningRequired: false,
-          pieceCount: null,
+          pieceCount: 1,
           maxQty: 10,
-          incomplete: true,
-          complianceVerified: false,
+          incomplete: false,
+          complianceVerified: true,
         },
       },
     );
 
     await page.goto("/checkout");
     await expect(page.getByRole("heading", { name: /^checkout$/i })).toBeVisible();
-    await expect(page.getByRole("note").filter({ hasText: /demonstration mode/i })).toBeVisible();
+    await expect(page.getByText(/demo mode|demonstration mode/i).first()).toBeVisible();
   });
 
   test("/admin route returns 404", async ({ page }) => {

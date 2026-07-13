@@ -26,7 +26,7 @@ export function OutdoorPanorama() {
             Take play into the sunshine.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-text-secondary md:text-lg">
-            Ring toss, bubble wands and scavenger-hunt cards for open spaces — use in safe areas away from roads
+            Ring toss, bubble wands and scavenger-hunt cards for open spaces. use in safe areas away from roads
             and glass, with adult supervision where noted on the product page.
           </p>
         </div>

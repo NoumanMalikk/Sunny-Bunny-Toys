@@ -19,7 +19,7 @@ export function ShippingMethodStep({ data, onChange, onNext, onBack }: CheckoutS
       <div>
         <h2 className="font-display text-2xl text-navy">Shipping method</h2>
         <p className="mt-2 text-sm text-text-secondary">
-          Demonstration rates — connect a carrier integration for live quotes.
+          Demonstration rates. connect a carrier integration for live quotes.
         </p>
       </div>
 

@@ -1,15 +1,15 @@
 # Product Editing
 
-Products are defined in `data/products.ts`. There is **no admin dashboard** — all catalogue changes are made in source and deployed via git.
+Products are defined in `data/products.ts`. There is **no admin dashboard**. all catalogue changes are made in source and deployed via git.
 
 > **Important:** Products ship as incomplete drafts. Do not mark a product purchasable until manufacturer/SKU mapping, authorized images, age grades, warnings, materials, and compliance are verified.
 
 ## File structure
 
-- `data/products.ts` — product drafts and `buildProduct()` factory
-- `data/categories.ts` — categories, age groups, play styles
-- `public/products/<slug>/` — product images (replace placeholders)
-- `lib/safety/product-activation.ts` — purchase eligibility rules
+- `data/products.ts`. product drafts and `buildProduct()` factory
+- `data/categories.ts`. categories, age groups, play styles
+- `public/products/<slug>/`. product images (replace placeholders)
+- `lib/safety/product-activation.ts`. purchase eligibility rules
 
 ## Adding a product
 
@@ -28,26 +28,26 @@ Products are defined in `data/products.ts`. There is **no admin dashboard** — 
 
 ## Prices
 
-Edit `price` and optional `compareAtPrice` on the draft. Prices are in USD. The `underTwentyFive` and `underFifty` flags drive gift-collection filters — update them when price changes.
+Edit `price` and optional `compareAtPrice` on the draft. Prices are in USD. The `underTwentyFive` and `underFifty` flags drive gift-collection filters. update them when price changes.
 
 ## Images
 
-See [image-sourcing.md](./image-sourcing.md). Each product needs a `main` image at minimum. Update the `images` array in `buildProduct` or override per draft. Set `imageSource` to the correct license type (`manufacturer`, `supplier`, etc.) — never `placeholder` at launch.
+See [image-sourcing.md](./image-sourcing.md). Each product needs a `main` image at minimum. Update the `images` array in `buildProduct` or override per draft. Set `imageSource` to the correct license type (`manufacturer`, `supplier`, etc.). never `placeholder` at launch.
 
 ## Age grades
 
-- `ageMinimum` / `ageMaximum` — displayed via `formatAgeRange()`
-- `ageGradeSource` — cite the manufacturer label source
-- `ageGradeVerified` — set `true` only after owner verification
-- `ageGradeVerifiedAt` — ISO date of verification
+- `ageMinimum` / `ageMaximum`. displayed via `formatAgeRange()`
+- `ageGradeSource`. cite the manufacturer label source
+- `ageGradeVerified`. set `true` only after owner verification
+- `ageGradeVerifiedAt`. ISO date of verification
 
 Products appear in **Shop by Age** collections when their age range overlaps the collection range (see `data/categories.ts` age groups).
 
 ## Warnings
 
-- `warningRequired` — `true` if a safety warning applies
-- `warningText` — exact warning copy from manufacturer label (choking hazard, magnets, etc.)
-- `chokingHazard`, `smallParts`, `magnetsIncluded` — boolean flags for filtering and checkout safety step
+- `warningRequired`. `true` if a safety warning applies
+- `warningText`. exact warning copy from manufacturer label (choking hazard, magnets, etc.)
+- `chokingHazard`, `smallParts`, `magnetsIncluded`. boolean flags for filtering and checkout safety step
 
 Purchase is blocked if `warningRequired` is true but `warningText` is missing.
 
@@ -71,7 +71,7 @@ Purchase is blocked if `warningRequired` is true but `warningText` is missing.
 active: false,
 ```
 
-**Activate for production** — all of the following must be true (enforced by `getProductActivationStatus`):
+**Activate for production**. all of the following must be true (enforced by `getProductActivationStatus`):
 
 - `active: true`
 - `incomplete: false` with empty `incompleteReasons`

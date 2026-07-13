@@ -1,12 +1,12 @@
 # Sunny Bunny Toy Co.
 
-A Next.js storefront for **Sunny Bunny Toys LLC** — dolls, plush, pretend-play sets, building toys, creative activities, puzzles, and family games. The catalogue ships with 26 draft products for demonstration and pre-launch review.
+A Next.js storefront for **Sunny Bunny Toys LLC**. dolls, plush, pretend-play sets, building toys, creative activities, puzzles, and family games. The catalogue ships with 26 draft products for demonstration and pre-launch review.
 
 > **Branding precaution:** This project uses original **Sunny Bunny Toy Co.** branding. It is **not** affiliated with the *Sunny Bunnies* children's entertainment property. Conduct trademark and brand-conflict review before public launch. See [docs/launch-checklist.md](docs/launch-checklist.md).
 
 ## Demo mode
 
-`NEXT_PUBLIC_STORE_MODE=demo` (default) enables the full browsing experience — shop, search, product pages, wishlist, and checkout wizard — without collecting payment or sending live order emails. Products remain **incomplete** until manufacturer mapping, authorized photography, age grades, warnings, and compliance records are verified. Purchase is blocked until verification is complete.
+`NEXT_PUBLIC_STORE_MODE=demo` (default) enables the full browsing experience. shop, search, product pages, wishlist, and checkout wizard. without collecting payment or sending live order emails. Products remain **incomplete** until manufacturer mapping, authorized photography, age grades, warnings, and compliance records are verified. Purchase is blocked until verification is complete.
 
 There is **no admin dashboard**. Product and content changes are made directly in source files (`data/products.ts`, `data/categories.ts`, etc.).
 
@@ -39,12 +39,12 @@ Open [http://localhost:3000](http://localhost:3000). See [docs/setup.md](docs/se
 
 Before switching to production (`NEXT_PUBLIC_STORE_MODE=production`):
 
-1. **Credentials** — Stripe, Resend, Supabase (if used), analytics IDs. See [docs/payment-setup.md](docs/payment-setup.md) and `.env.example`.
-2. **Safety documentation** — Verify current CPSC/ASTM/CPSIA requirements; collect CPCs, test reports, and tracking labels. See [docs/product-safety.md](docs/product-safety.md).
-3. **Supplier mapping** — Map every SKU to a verified manufacturer source product. See [docs/product-editing.md](docs/product-editing.md).
-4. **Authorized images** — Replace all placeholders with licensed photography. See [docs/image-sourcing.md](docs/image-sourcing.md).
-5. **Brand legal review** — Trademark clearance and Sunny Bunnies conflict review. **Not completed by this repository.**
-6. **Full launch checklist** — [docs/launch-checklist.md](docs/launch-checklist.md).
+1. **Credentials**. Stripe, Resend, Supabase (if used), analytics IDs. See [docs/payment-setup.md](docs/payment-setup.md) and `.env.example`.
+2. **Safety documentation**. Verify current CPSC/ASTM/CPSIA requirements; collect CPCs, test reports, and tracking labels. See [docs/product-safety.md](docs/product-safety.md).
+3. **Supplier mapping**. Map every SKU to a verified manufacturer source product. See [docs/product-editing.md](docs/product-editing.md).
+4. **Authorized images**. Replace all placeholders with licensed photography. See [docs/image-sourcing.md](docs/image-sourcing.md).
+5. **Brand legal review**. Trademark clearance and Sunny Bunnies conflict review. **Not completed by this repository.**
+6. **Full launch checklist**. [docs/launch-checklist.md](docs/launch-checklist.md).
 
 ## Documentation
 

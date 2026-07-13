@@ -44,9 +44,9 @@ export const megaMenu = {
   ages: {
     title: "Shop by age",
     links: [
-      { label: "Ages 3–4", href: "/shop-by-age/3-4" },
-      { label: "Ages 5–7", href: "/shop-by-age/5-7" },
-      { label: "Ages 8–10", href: "/shop-by-age/8-10" },
+      { label: "Ages 3-4", href: "/shop-by-age/3-4" },
+      { label: "Ages 5-7", href: "/shop-by-age/5-7" },
+      { label: "Ages 8-10", href: "/shop-by-age/8-10" },
       { label: "Ages 10+", href: "/shop-by-age/10-plus" },
       { label: "Family Games", href: "/collections/family-game-night" },
     ],
@@ -64,9 +64,9 @@ export const footerNav = {
     { label: "Outdoor Play", href: "/outdoor-play" },
   ],
   ages: [
-    { label: "Ages 3–4", href: "/shop-by-age/3-4" },
-    { label: "Ages 5–7", href: "/shop-by-age/5-7" },
-    { label: "Ages 8–10", href: "/shop-by-age/8-10" },
+    { label: "Ages 3-4", href: "/shop-by-age/3-4" },
+    { label: "Ages 5-7", href: "/shop-by-age/5-7" },
+    { label: "Ages 8-10", href: "/shop-by-age/8-10" },
     { label: "Ages 10+", href: "/shop-by-age/10-plus" },
     { label: "Family Games", href: "/collections/family-game-night" },
   ],

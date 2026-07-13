@@ -7,15 +7,6 @@ export async function GET(request: Request) {
   const sessionId = searchParams.get("session_id");
   const orderRef = searchParams.get("orderRef");
 
-  if (isDemoMode()) {
-    return Response.json({
-      ok: false,
-      verified: false,
-      demo: true,
-      message: "Demonstration mode — no paid order was created.",
-    });
-  }
-
   if (!sessionId && !orderRef) {
     return Response.json(
       { ok: false, verified: false, message: "session_id or orderRef is required." },
@@ -26,6 +17,44 @@ export async function GET(request: Request) {
   let order = sessionId ? getOrderBySessionId(sessionId) : undefined;
   if (!order && orderRef) {
     order = getOrderByRef(orderRef);
+  }
+
+  if (isDemoMode()) {
+    if (order?.demoMode) {
+      return Response.json({
+        ok: true,
+        verified: true,
+        demo: true,
+        message: "Demo order confirmed. No payment was collected.",
+        order: sanitizeOrder(order),
+      });
+    }
+
+    if (orderRef) {
+      return Response.json({
+        ok: true,
+        verified: true,
+        demo: true,
+        message: "Demo order confirmed. No payment was collected.",
+        order: {
+          orderRef: orderRef.toUpperCase(),
+          status: "processing",
+          paymentStatus: "demo_blocked",
+          total: 0,
+          createdAt: new Date().toISOString(),
+          customer: { firstName: "Guest", email: "" },
+          items: [],
+          demoMode: true,
+        },
+      });
+    }
+
+    return Response.json({
+      ok: false,
+      verified: false,
+      demo: true,
+      message: "Demo order reference not found.",
+    });
   }
 
   if (!order) {

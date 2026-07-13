@@ -5,7 +5,7 @@ import { brand } from "@/data/store-config";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Answers to common questions about shopping at Sunny Bunny Toy Co. — online ordering, age guidance, warnings, gifts, demo checkout and adult-directed communication.",
+    "Answers to common questions about shopping at Sunny Bunny Toy Co. online ordering, age guidance, warnings, gifts, demo checkout and adult-directed communication.",
 };
 
 export default function FaqPage() {

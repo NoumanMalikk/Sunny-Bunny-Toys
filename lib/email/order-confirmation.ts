@@ -84,7 +84,7 @@ export async function sendOrderConfirmationEmail(order: Order): Promise<{ sent: 
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.warn("RESEND_API_KEY not configured — skipping order confirmation email.");
+    console.warn("RESEND_API_KEY not configured. skipping order confirmation email.");
     return { sent: false, reason: "resend_not_configured" };
   }
 

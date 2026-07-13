@@ -52,7 +52,7 @@ export function validateCartLines(lines: CartLineInput[]): ValidatedCartResult {
     }
 
     if (roundMoney(line.price) !== roundMoney(product.price)) {
-      errors.push(`${product.title}: price mismatch — refresh your cart and try again.`);
+      errors.push(`${product.title}: price mismatch. refresh your cart and try again.`);
       continue;
     }
 

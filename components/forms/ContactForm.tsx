@@ -69,7 +69,7 @@ export function ContactForm() {
       }
 
       setStatus("success");
-      setFormMessage(data.message ?? "Thank you — your message has been received.");
+      setFormMessage(data.message ?? "Thank you. your message has been received.");
       setName("");
       setEmail("");
       setPhone("");
@@ -107,7 +107,7 @@ export function ContactForm() {
         </div>
       ) : null}
 
-      {/* Honeypot — hidden from users and assistive tech */}
+      {/* Honeypot. hidden from users and assistive tech */}
       <div className="sr-only" aria-hidden="true">
         <label htmlFor={`${formId}-website`}>Website</label>
         <input

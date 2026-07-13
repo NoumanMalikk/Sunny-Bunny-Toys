@@ -9,7 +9,7 @@ export function PlayPathNav() {
   return (
     <nav
       aria-label="Explore by play path"
-      className="relative z-20 -mt-16 px-4 md:-mt-24 md:px-6"
+      className="relative z-20 -mt-10 px-4 md:-mt-14 md:px-6"
     >
       <ul className="container-wide grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 lg:gap-4">
         {playPathCards.map((card) => {

@@ -53,7 +53,7 @@ describe("calculateOrderTotals", () => {
         methodId: "standard",
         methodName: "Standard",
         amount: 8.95,
-        estimatedDays: "5–8 days",
+        estimatedDays: "5-8 days",
         description: "Demonstration rate",
       },
       giftWrap: false,
@@ -84,7 +84,7 @@ describe("calculateOrderTotals", () => {
         methodId: "standard",
         methodName: "Standard",
         amount: 8.95,
-        estimatedDays: "5–8 days",
+        estimatedDays: "5-8 days",
         description: "Demonstration rate",
       },
     });

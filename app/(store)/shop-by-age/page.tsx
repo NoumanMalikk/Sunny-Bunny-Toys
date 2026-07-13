@@ -5,7 +5,7 @@ import { brand } from "@/data/store-config";
 
 export const metadata: Metadata = {
   title: "Shop by Age",
-  description: `Browse ${brand.publicName} toys by age range — from preschool imaginative play to family games for ages 10 and up.`,
+  description: `Browse ${brand.publicName} toys by age range. from preschool imaginative play to family games for ages 10 and up.`,
 };
 
 export default function ShopByAgePage() {

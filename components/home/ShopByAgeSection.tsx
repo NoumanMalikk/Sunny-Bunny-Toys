@@ -37,7 +37,7 @@ export function ShopByAgeSection() {
         <SectionHeader
           eyebrow="Shop by age"
           title="Find a great match for their stage"
-          description="Browse by age range to narrow options — always confirm the age grade and warnings on each product page before purchase."
+          description="Browse by age range to narrow options. always confirm the age grade and warnings on each product page before purchase."
         />
 
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5" role="list">

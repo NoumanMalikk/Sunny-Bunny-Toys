@@ -44,7 +44,7 @@ export const shippingConfig = {
   weightRatePerLb: 1.25,
   oversizedProductRate: 14.95,
   oversizedWeightThresholdLbs: 8,
-  processingText: "Orders typically prepare for shipment within 1–3 business days after payment confirmation.",
+  processingText: "Orders typically prepare for shipment within 1-3 business days after payment confirmation.",
   carrierEstimateText:
     "Available shipping methods and costs are calculated during checkout based on product size, weight, quantity and destination.",
   restrictedStates: [] as string[],
@@ -53,15 +53,15 @@ export const shippingConfig = {
     {
       id: "standard",
       name: "Standard Shipping",
-      description: "Demonstration rate — connect a carrier for live rates.",
-      estimatedDays: "5–8 business days",
+      description: "Demonstration rate. connect a carrier for live rates.",
+      estimatedDays: "5-8 business days",
       baseRate: 8.95,
     },
     {
       id: "expedited",
       name: "Expedited Shipping",
-      description: "Demonstration rate — connect a carrier for live rates.",
-      estimatedDays: "2–4 business days",
+      description: "Demonstration rate. connect a carrier for live rates.",
+      estimatedDays: "2-4 business days",
       baseRate: 16.95,
     },
   ],

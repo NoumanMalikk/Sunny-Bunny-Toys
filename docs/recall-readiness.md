@@ -14,7 +14,7 @@ Maintain a spreadsheet mapping every `supplierSku` and `upc` to CPSC recall data
 
 1. Set `active: false` on affected products in `data/products.ts`
 2. Set `stockStatus: "unavailable"`
-3. Deploy immediately — purchase is blocked by `product-activation.ts`
+3. Deploy immediately. purchase is blocked by `product-activation.ts`
 4. Remove from featured sections and homepage references if any
 
 ## Safety hold
@@ -37,7 +37,7 @@ If units were sold:
 
 ## Refunds
 
-Process refunds through Stripe for card orders. Document refund reason as safety/recall. See returns policy at `/returns` — safety recalls may override standard return windows.
+Process refunds through Stripe for card orders. Document refund reason as safety/recall. See returns policy at `/returns`. safety recalls may override standard return windows.
 
 ## Deactivation checklist
 

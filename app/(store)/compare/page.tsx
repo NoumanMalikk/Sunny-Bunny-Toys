@@ -14,7 +14,7 @@ export default function ComparePage() {
         <p className="eyebrow">Compare</p>
         <h1 className="mt-2 font-display text-4xl text-navy md:text-5xl">Compare products</h1>
         <p className="mt-3 text-lg text-text-secondary">
-          Review up to {checkoutConfig.maxCompareItems} products side by side — price, age grade, materials,
+          Review up to {checkoutConfig.maxCompareItems} products side by side. price, age grade, materials,
           piece count and category-specific details.
         </p>
       </header>

@@ -8,7 +8,7 @@ const LAST_UPDATED = "2026-07-13";
 export const metadata: Metadata = {
   title: "Returns and Refunds",
   description:
-    "Return and refund policy for Sunny Bunny Toy Co. — request period, eligible condition, restricted items and how to start a return.",
+    "Return and refund policy for Sunny Bunny Toy Co. request period, eligible condition, restricted items and how to start a return.",
 };
 
 export default function ReturnsPage() {
