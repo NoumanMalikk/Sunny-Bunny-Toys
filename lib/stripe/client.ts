@@ -18,8 +18,9 @@ export function getStripe(): Stripe {
   }
 
   if (!stripeClient) {
+    // Use the SDK's bundled API version so TypeScript always matches the installed stripe package.
     stripeClient = new Stripe(secretKey, {
-      apiVersion: "2026-06-24.dahlia",
+      apiVersion: Stripe.API_VERSION,
       typescript: true,
     });
   }
