@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Sunny Bunny Toy Co. packaging mark">
+  <defs>
+    <linearGradient id="sb-sun-grad-pkg" x1="32" y1="18" x2="32" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD457"/>
+      <stop offset="1" stop-color="#F5B83D"/>
+    </linearGradient>
+  </defs>
+  <path d="M2 50C16 38 26 42 36 37C46 32 54 28 62 24" stroke="#55CFA8" stroke-width="5" stroke-linecap="round"/>
+  <path d="M11 41a21 21 0 0 1 42 0" fill="url(#sb-sun-grad-pkg)"/>
+  <path d="M22 41C21 30 19 14 16 9C14 6 17 4 20 7C22 9 24 24 25 41Z" fill="#203247"/>
+  <path d="M42 41C43 30 45 14 48 9C50 6 47 4 44 7C42 9 40 24 39 41Z" fill="#203247"/>
+  <path d="M54 14l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5 1.5-3z" fill="#F5B83D"/>
+</svg>

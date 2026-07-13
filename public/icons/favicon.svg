@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" role="img" aria-label="Sunny Bunny Toy Co.">
+  <defs>
+    <linearGradient id="sb-sun-grad-fav" x1="16" y1="7" x2="16" y2="21" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD457"/>
+      <stop offset="1" stop-color="#F5B83D"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="#FFF8E9"/>
+  <g transform="translate(0 0) scale(0.5)">
+    <path d="M3 47.5C14 36.5 24.5 40 33.5 35.5C42 31.5 52.5 27 61 21" stroke="#55CFA8" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M13 39.5a19 19 0 0 1 38 0" fill="url(#sb-sun-grad-fav)"/>
+    <path d="M32 12v5M21.5 17.8l3.5 4.3M42.5 17.8l-3.5 4.3" stroke="#FFD457" stroke-width="2" stroke-linecap="round"/>
+    <path d="M24 39C23 32 21 18 19 11C18 8 20 6 23 8C25 10 27 22 28 39Z" fill="#203247"/>
+    <path d="M40 39C41 32 43 18 45 11C46 8 44 6 41 8C39 10 37 22 36 39Z" fill="#203247"/>
+    <path d="M52.5 11.5l1 2.5 2.5 1-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1 1-2.5z" fill="#F5B83D"/>
+  </g>
+</svg>
