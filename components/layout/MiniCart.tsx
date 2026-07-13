@@ -147,12 +147,6 @@ export function MiniCart({ open, onClose }: MiniCartProps) {
                     {item.warningRequired && item.warningText ? (
                       <WarningBanner warningText={item.warningText} compact />
                     ) : null}
-
-                    {item.incomplete ? (
-                      <p className="text-xs font-semibold text-warning">
-                        This listing is incomplete and may not be available for purchase.
-                      </p>
-                    ) : null}
                   </div>
                 </li>
               );

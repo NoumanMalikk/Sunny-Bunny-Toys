@@ -39,7 +39,6 @@ export function CartPage() {
   const isDemo = storeMode.mode === "demo";
   const subtotal = hydrated ? getSubtotal() : 0;
   const totals = calculateOrderTotals({ items, shipping: null, giftWrap });
-  const hasBlockers = items.some((item) => item.incomplete || !item.complianceVerified);
   const recommendations = useMemo(() => {
     const relatedIds = new Set<string>();
     items.forEach((item) => {
@@ -148,12 +147,6 @@ export function CartPage() {
 
                     {item.warningRequired && item.warningText ? (
                       <WarningBanner warningText={item.warningText} />
-                    ) : null}
-
-                    {item.incomplete ? (
-                      <p className="text-sm font-semibold text-warning">
-                        This listing is incomplete and cannot be purchased until verified.
-                      </p>
                     ) : null}
 
                     <div className="flex flex-wrap items-center justify-between gap-4">
@@ -275,12 +268,7 @@ export function CartPage() {
               {shippingConfig.carrierEstimateText}
             </p>
             <p className="mt-2 text-xs leading-relaxed text-text-secondary">{totals.taxMessage}</p>
-            {hasBlockers ? (
-              <p className="mt-4 text-sm font-semibold text-warning" role="alert">
-                Some items cannot be purchased until compliance verification is complete.
-              </p>
-            ) : null}
-            <Button href="/checkout" size="lg" className="mt-6 w-full" disabled={hasBlockers}>
+            <Button href="/checkout" size="lg" className="mt-6 w-full">
               Proceed to checkout
             </Button>
             <Button href="/new-arrivals" variant="ghost" className="mt-2 w-full">

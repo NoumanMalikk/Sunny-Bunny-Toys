@@ -17,7 +17,15 @@ type SubmitStepProps = CheckoutStepProps & {
   onSubmitSuccess: (url: string) => void;
 };
 
-export function SubmitStep({ data, onBack, stripeConfigured }: SubmitStepProps) {
+function createIdempotencyKey() {
+  const random =
+    typeof crypto !== "undefined" && "randomUUID" in crypto
+      ? crypto.randomUUID().slice(0, 8)
+      : Math.random().toString(36).slice(2, 10);
+  return `checkout-${Date.now()}-${random}`;
+}
+
+export function SubmitStep({ data, onBack, stripeConfigured, onSubmitSuccess }: SubmitStepProps) {
   const items = useCartStore((s) => s.items);
   const clear = useCartStore((s) => s.clear);
   const [loading, setLoading] = useState(false);
@@ -39,7 +47,6 @@ export function SubmitStep({ data, onBack, stripeConfigured }: SubmitStepProps) 
     setError("");
 
     try {
-      const idempotencyKey = `checkout-${Date.now()}-${crypto.randomUUID().slice(0, 8)}`;
       const response = await fetch("/api/checkout/create-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -52,7 +59,7 @@ export function SubmitStep({ data, onBack, stripeConfigured }: SubmitStepProps) 
           gift: data.gift,
           safety: data.safety,
           terms: data.terms,
-          idempotencyKey,
+          idempotencyKey: createIdempotencyKey(),
         }),
       });
 
@@ -86,7 +93,7 @@ export function SubmitStep({ data, onBack, stripeConfigured }: SubmitStepProps) 
         clear();
       }
 
-      window.location.href = result.url;
+      onSubmitSuccess(result.url);
     } catch {
       setError("Unable to connect. Please try again.");
     } finally {

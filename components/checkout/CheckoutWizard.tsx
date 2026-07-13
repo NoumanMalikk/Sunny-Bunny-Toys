@@ -187,7 +187,13 @@ export function CheckoutWizard({ stripeConfigured }: CheckoutWizardProps) {
           <SubmitStep
             {...stepProps}
             stripeConfigured={stripeConfigured}
-            onSubmitSuccess={(url) => router.push(url)}
+            onSubmitSuccess={(url) => {
+              if (url.startsWith("http")) {
+                window.location.assign(url);
+              } else {
+                router.push(url);
+              }
+            }}
           />
         );
       default:
