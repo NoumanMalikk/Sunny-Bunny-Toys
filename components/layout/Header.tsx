@@ -14,7 +14,9 @@ import {
 import { Logo } from "@/components/brand/Logo";
 import { megaMenu } from "@/data/navigation";
 import { useCartStore } from "@/lib/cart/store";
+import { useCartUiStore } from "@/lib/cart/ui-store";
 import { useWishlistStore } from "@/lib/cart/wishlist-store";
+import { useCartHydrated } from "@/lib/hooks/use-cart-hydrated";
 import { useHydrated } from "@/lib/hooks/use-hydrated";
 import { cn } from "@/lib/utilities/cn";
 import { MiniCart } from "@/components/layout/MiniCart";
@@ -45,13 +47,14 @@ function CountBadge({ count }: { count: number }) {
 
 export function Header() {
   const hydrated = useHydrated();
+  const cartHydrated = useCartHydrated();
   const shopMenuId = useId();
   const headerRef = useRef<HTMLElement>(null);
 
   const getItemCount = useCartStore((state) => state.getItemCount);
   const productIds = useWishlistStore((state) => state.productIds);
 
-  const cartCount = hydrated ? getItemCount() : 0;
+  const cartCount = cartHydrated ? getItemCount() : 0;
   const wishlistCount = hydrated ? productIds.length : 0;
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -60,7 +63,9 @@ export function Header() {
   const [megaOpen, setMegaOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [cartOpen, setCartOpen] = useState(false);
+  const cartOpen = useCartUiStore((state) => state.isOpen);
+  const openCart = useCartUiStore((state) => state.open);
+  const closeCart = useCartUiStore((state) => state.close);
 
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
@@ -259,7 +264,7 @@ export function Header() {
 
             <button
               type="button"
-              onClick={() => setCartOpen(true)}
+              onClick={openCart}
               className="relative inline-flex size-10 items-center justify-center rounded-[var(--radius-btn)] text-navy hover:bg-soft-gray focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-sunshine focus-visible:ring-offset-2"
               aria-label={
                 cartCount > 0 ? `Cart, ${cartCount} item${cartCount === 1 ? "" : "s"}` : "Cart"
@@ -276,13 +281,13 @@ export function Header() {
         open={mobileNavOpen}
         onClose={() => setMobileNavOpen(false)}
         onOpenSearch={() => setSearchOpen(true)}
-        onOpenCart={() => setCartOpen(true)}
+        onOpenCart={openCart}
         cartCount={cartCount}
         wishlistCount={wishlistCount}
       />
 
       <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
-      <MiniCart open={cartOpen} onClose={() => setCartOpen(false)} />
+      <MiniCart open={cartOpen} onClose={closeCart} />
     </>
   );
 }

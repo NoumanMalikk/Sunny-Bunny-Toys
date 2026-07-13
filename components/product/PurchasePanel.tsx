@@ -11,6 +11,7 @@ import { giftConfig } from "@/data/store-config";
 import { Button } from "@/components/ui/Button";
 import { Announcer } from "@/components/ui/Announcer";
 import { useCartStore } from "@/lib/cart/store";
+import { useCartUiStore } from "@/lib/cart/ui-store";
 import { useWishlistStore } from "@/lib/cart/wishlist-store";
 import { useCompareStore } from "@/lib/cart/compare-store";
 import { AgeBadge } from "@/components/product/AgeBadge";
@@ -46,6 +47,7 @@ export function PurchasePanel({ product, className }: PurchasePanelProps) {
   const [announcement, setAnnouncement] = useState("");
 
   const add = useCartStore((s) => s.add);
+  const openCart = useCartUiStore((s) => s.open);
   const toggleWishlist = useWishlistStore((s) => s.toggle);
   const isWishlisted = useWishlistStore((s) => s.has(product.id));
   const toggleCompare = useCompareStore((s) => s.toggle);
@@ -57,9 +59,12 @@ export function PurchasePanel({ product, className }: PurchasePanelProps) {
 
   const handleAdd = () => {
     const result = add(product, quantity, hasVariants ? selectedVariant : undefined);
-    setAnnouncement(
-      result.ok ? `${quantity} × ${product.title} added to cart` : (result.message ?? "Unable to add to cart"),
-    );
+    if (result.ok) {
+      setAnnouncement(`${quantity} × ${product.title} added to cart`);
+      openCart();
+    } else {
+      setAnnouncement(result.message ?? "Unable to add to cart");
+    }
   };
 
   const handleWishlist = () => {

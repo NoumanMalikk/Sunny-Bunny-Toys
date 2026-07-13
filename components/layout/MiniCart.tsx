@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import { Drawer } from "@/components/ui/Drawer";
 import { Button } from "@/components/ui/Button";
 import { WarningBanner } from "@/components/product/WarningBanner";
 import { useCartStore } from "@/lib/cart/store";
 import { formatPrice } from "@/lib/pricing/format";
-import { useHydrated } from "@/lib/hooks/use-hydrated";
+import { useCartHydrated } from "@/lib/hooks/use-cart-hydrated";
 import { cn } from "@/lib/utilities/cn";
 
 export type MiniCartProps = {
@@ -17,7 +18,8 @@ export type MiniCartProps = {
 };
 
 export function MiniCart({ open, onClose }: MiniCartProps) {
-  const hydrated = useHydrated();
+  const router = useRouter();
+  const hydrated = useCartHydrated();
   const items = useCartStore((state) => state.items);
   const updateQty = useCartStore((state) => state.updateQty);
   const remove = useCartStore((state) => state.remove);
@@ -27,6 +29,15 @@ export function MiniCart({ open, onClose }: MiniCartProps) {
   const itemCount = hydrated ? getItemCount() : 0;
   const subtotal = hydrated ? getSubtotal() : 0;
   const hasWarnings = items.some((item) => item.warningRequired && item.warningText);
+
+  const goToCheckout = () => {
+    onClose();
+    // Prefer hard navigation so checkout always loads with a fresh client tree
+    // after the cart drawer closes (avoids stuck drawer focus traps).
+    window.setTimeout(() => {
+      router.push("/checkout");
+    }, 0);
+  };
 
   return (
     <Drawer
@@ -42,7 +53,7 @@ export function MiniCart({ open, onClose }: MiniCartProps) {
     >
       {!hydrated ? (
         <p className="text-sm text-text-secondary" aria-live="polite">
-          Loading cart…
+          Loading cart...
         </p>
       ) : items.length === 0 ? (
         <div className="flex flex-col items-center gap-4 py-10 text-center">
@@ -60,7 +71,7 @@ export function MiniCart({ open, onClose }: MiniCartProps) {
           </Button>
         </div>
       ) : (
-        <div className="flex flex-col gap-4">
+        <div className="flex h-full flex-col gap-4">
           {hasWarnings ? (
             <div role="note" className="rounded-[var(--radius-btn)] border border-warning/30 bg-warning/5 p-3">
               <p className="text-xs font-semibold text-warning">
@@ -153,7 +164,7 @@ export function MiniCart({ open, onClose }: MiniCartProps) {
             })}
           </ul>
 
-          <div className="sticky bottom-0 -mx-5 border-t border-border bg-cloud px-5 py-4">
+          <div className="sticky bottom-0 -mx-5 mt-auto border-t border-border bg-cloud px-5 py-4">
             <div className="mb-4 flex items-center justify-between">
               <span className="font-ui text-sm text-text-secondary">Subtotal</span>
               <span className="tabular font-display text-lg text-navy">{formatPrice(subtotal)}</span>
@@ -162,10 +173,10 @@ export function MiniCart({ open, onClose }: MiniCartProps) {
               Shipping and taxes calculated at checkout.
             </p>
             <div className="grid gap-2">
-              <Button href="/checkout" size="lg" className="w-full" onClick={onClose}>
+              <Button type="button" size="lg" className="w-full" onClick={goToCheckout}>
                 Proceed to checkout
               </Button>
-              <Button variant="ghost" className="w-full" onClick={onClose}>
+              <Button type="button" variant="ghost" className="w-full" onClick={onClose}>
                 Continue shopping
               </Button>
             </div>

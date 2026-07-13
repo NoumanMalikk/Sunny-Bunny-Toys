@@ -9,21 +9,51 @@ export type HeroSceneVisualProps = {
 
 const scenes = {
   imagine: {
-    wash: "from-[#FFF3D6] via-[#FFE9A8] to-[#C8F0DD]",
-    glow: "bg-sunshine/40",
-    accent: "bg-mint/30",
+    wash: "from-[#FFF6E0] via-[#FFE79A] to-[#B8EBD4]",
+    orb: "bg-[#FFD457]/55",
+    orbTwo: "bg-[#55CFA8]/35",
   },
   build: {
-    wash: "from-[#E3F4FC] via-[#F7FBFF] to-[#FFE8B0]",
-    glow: "bg-sky/40",
-    accent: "bg-golden/30",
+    wash: "from-[#DFF3FC] via-[#F4FAFF] to-[#FFE7A8]",
+    orb: "bg-[#79C9F4]/45",
+    orbTwo: "bg-[#F5B83D]/35",
   },
   together: {
-    wash: "from-[#EDE8FF] via-[#FFF7F2] to-[#FFD8CE]",
-    glow: "bg-lavender/35",
-    accent: "bg-coral/25",
+    wash: "from-[#E9E4FF] via-[#FFF8F3] to-[#FFD3C8]",
+    orb: "bg-[#A89AEF]/40",
+    orbTwo: "bg-[#FF7968]/30",
   },
 } as const;
+
+function ProductShot({
+  slug,
+  className,
+  priority = false,
+  sizes,
+}: {
+  slug: string;
+  className?: string;
+  priority?: boolean;
+  sizes: string;
+}) {
+  return (
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-[1.5rem] bg-white shadow-[0_22px_50px_rgba(32,50,71,0.18)] ring-1 ring-black/5",
+        className,
+      )}
+    >
+      <Image
+        src={`/products/${slug}/main.png`}
+        alt=""
+        fill
+        priority={priority}
+        className="object-contain p-5 sm:p-6"
+        sizes={sizes}
+      />
+    </div>
+  );
+}
 
 export function HeroSceneVisual({ variant, productSlugs, className }: HeroSceneVisualProps) {
   const scene = scenes[variant];
@@ -31,58 +61,60 @@ export function HeroSceneVisual({ variant, productSlugs, className }: HeroSceneV
 
   return (
     <div
-      className={cn(
-        "absolute inset-0 overflow-hidden bg-gradient-to-br",
-        scene.wash,
-        className,
-      )}
+      className={cn("absolute inset-0 overflow-hidden bg-gradient-to-br", scene.wash, className)}
       aria-hidden="true"
     >
-      <div className={cn("pointer-events-none absolute -right-16 top-0 h-[28rem] w-[28rem] rounded-full blur-3xl", scene.glow)} />
-      <div className={cn("pointer-events-none absolute bottom-10 left-[40%] h-64 w-64 rounded-full blur-3xl", scene.accent)} />
+      <div className={cn("pointer-events-none absolute -right-16 -top-8 h-[30rem] w-[30rem] rounded-full blur-3xl", scene.orb)} />
+      <div className={cn("pointer-events-none absolute bottom-0 left-[40%] h-72 w-72 rounded-full blur-3xl", scene.orbTwo)} />
 
-      {/* Soft architectural frame */}
-      <div className="pointer-events-none absolute inset-y-10 right-8 hidden w-[46%] rounded-[2.5rem] border border-white/50 bg-white/25 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)] backdrop-blur-[2px] lg:block" />
-
-      <div className="absolute inset-y-0 right-0 flex w-full items-center justify-center px-6 pt-16 pb-10 md:w-[54%] md:px-10 md:pt-10">
-        <div className="relative mx-auto grid w-full max-w-xl grid-cols-12 grid-rows-6 gap-3 md:gap-4">
+      {/* Desktop collage: right half only */}
+      <div className="absolute inset-y-0 right-0 hidden w-[50%] items-center justify-center p-8 lg:flex xl:w-[48%] xl:p-12">
+        <div className="grid w-full max-w-[32rem] grid-cols-2 gap-4">
           {primary ? (
-            <div className="relative col-span-8 col-start-3 row-span-4 row-start-1 overflow-hidden rounded-[28px] bg-white shadow-[0_24px_60px_rgba(32,50,71,0.16)] ring-1 ring-black/5">
-              <Image
-                src={`/products/${primary}/main.png`}
-                alt=""
-                fill
-                priority
-                className="object-contain p-5 md:p-8"
-                sizes="(max-width: 768px) 70vw, 34vw"
-              />
-            </div>
+            <ProductShot
+              slug={primary}
+              priority
+              className="col-span-2 aspect-[5/4]"
+              sizes="(max-width: 1280px) 40vw, 28rem"
+            />
           ) : null}
-
           {secondary ? (
-            <div className="relative col-span-5 col-start-1 row-span-3 row-start-4 overflow-hidden rounded-[24px] bg-white shadow-[0_18px_40px_rgba(32,50,71,0.14)] ring-1 ring-black/5">
-              <Image
-                src={`/products/${secondary}/main.png`}
-                alt=""
-                fill
-                className="object-contain p-4 md:p-5"
-                sizes="(max-width: 768px) 40vw, 18vw"
-              />
-            </div>
+            <ProductShot slug={secondary} className="aspect-square" sizes="(max-width: 1280px) 18vw, 14rem" />
           ) : null}
-
           {tertiary ? (
-            <div className="relative col-span-5 col-start-8 row-span-3 row-start-4 overflow-hidden rounded-[24px] bg-white shadow-[0_18px_40px_rgba(32,50,71,0.14)] ring-1 ring-black/5">
-              <Image
-                src={`/products/${tertiary}/main.png`}
-                alt=""
-                fill
-                className="object-contain p-4 md:p-5"
-                sizes="(max-width: 768px) 40vw, 18vw"
-              />
-            </div>
+            <ProductShot slug={tertiary} className="aspect-square" sizes="(max-width: 1280px) 18vw, 14rem" />
           ) : null}
         </div>
+      </div>
+
+      {/* Tablet: stacked shots on the right */}
+      <div className="absolute inset-y-0 right-0 hidden w-[46%] items-center justify-center p-6 md:flex lg:hidden">
+        <div className="flex w-full max-w-sm flex-col gap-3">
+          {primary ? (
+            <ProductShot slug={primary} priority className="aspect-[4/3] w-full" sizes="40vw" />
+          ) : null}
+          <div className="grid grid-cols-2 gap-3">
+            {secondary ? (
+              <ProductShot slug={secondary} className="aspect-square" sizes="20vw" />
+            ) : null}
+            {tertiary ? (
+              <ProductShot slug={tertiary} className="aspect-square" sizes="20vw" />
+            ) : null}
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile: floating product strip above the fold copy */}
+      <div className="absolute inset-x-0 top-16 flex justify-center gap-3 px-5 md:hidden">
+        {primary ? (
+          <ProductShot slug={primary} priority className="aspect-square w-[38%] max-w-[9.5rem]" sizes="38vw" />
+        ) : null}
+        {secondary ? (
+          <ProductShot slug={secondary} className="mt-6 aspect-square w-[30%] max-w-[7.5rem]" sizes="30vw" />
+        ) : null}
+        {tertiary ? (
+          <ProductShot slug={tertiary} className="mt-2 aspect-square w-[28%] max-w-[7rem]" sizes="28vw" />
+        ) : null}
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import {
   cloneElement,
   forwardRef,
   isValidElement,
+  type AnchorHTMLAttributes,
   type ButtonHTMLAttributes,
   type ReactElement,
 } from "react";
@@ -51,30 +52,44 @@ function mergeRefs<T>(...refs: Array<React.Ref<T> | undefined>) {
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { className, variant, size, asChild, href, children, type = "button", ...props },
+  { className, variant, size, asChild, href, children, type = "button", disabled, onClick, ...props },
   ref,
 ) {
   const classes = cn(buttonVariants({ variant, size }), className);
 
   if (href) {
+    const linkProps = props as AnchorHTMLAttributes<HTMLAnchorElement>;
     return (
-      <Link href={href} className={classes}>
+      <Link
+        href={href}
+        className={cn(classes, disabled && "pointer-events-none opacity-50")}
+        aria-disabled={disabled || undefined}
+        onClick={onClick as AnchorHTMLAttributes<HTMLAnchorElement>["onClick"]}
+        {...linkProps}
+      >
         {children}
       </Link>
     );
   }
 
   if (asChild && isValidElement(children)) {
-    const child = children as ReactElement<{ className?: string; ref?: React.Ref<unknown> }>;
+    const child = children as ReactElement<{
+      className?: string;
+      ref?: React.Ref<unknown>;
+      onClick?: ButtonProps["onClick"];
+      disabled?: boolean;
+    }>;
     return cloneElement(child, {
       ...props,
+      onClick,
+      disabled,
       className: cn(classes, child.props.className),
       ref: mergeRefs(ref, child.props.ref),
     });
   }
 
   return (
-    <button ref={ref} type={type} className={classes} {...props}>
+    <button ref={ref} type={type} className={classes} disabled={disabled} onClick={onClick} {...props}>
       {children}
     </button>
   );

@@ -10,7 +10,7 @@ import { useCartStore } from "@/lib/cart/store";
 import { useWishlistStore } from "@/lib/cart/wishlist-store";
 import { calculateOrderTotals } from "@/lib/checkout/totals";
 import { formatPrice } from "@/lib/pricing/format";
-import { useHydrated } from "@/lib/hooks/use-hydrated";
+import { useCartHydrated } from "@/lib/hooks/use-cart-hydrated";
 import { cn } from "@/lib/utilities/cn";
 import { Button } from "@/components/ui/Button";
 import { Checkbox } from "@/components/ui/Checkbox";
@@ -23,7 +23,7 @@ import { DemoNotice } from "@/components/checkout/DemoNotice";
 import { Announcer } from "@/components/ui/Announcer";
 
 export function CartPage() {
-  const hydrated = useHydrated();
+  const hydrated = useCartHydrated();
   const items = useCartStore((s) => s.items);
   const updateQty = useCartStore((s) => s.updateQty);
   const remove = useCartStore((s) => s.remove);

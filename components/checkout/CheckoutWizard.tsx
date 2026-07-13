@@ -30,7 +30,7 @@ import { PaymentStep } from "@/components/checkout/steps/PaymentStep";
 import { ReviewStep } from "@/components/checkout/steps/ReviewStep";
 import { TermsStep } from "@/components/checkout/steps/TermsStep";
 import { SubmitStep } from "@/components/checkout/steps/SubmitStep";
-import { useHydrated } from "@/lib/hooks/use-hydrated";
+import { useCartHydrated } from "@/lib/hooks/use-cart-hydrated";
 import { cn } from "@/lib/utilities/cn";
 import { Button } from "@/components/ui/Button";
 
@@ -94,7 +94,7 @@ function validateStep(stepId: CheckoutStepId, data: CheckoutWizardState): Record
 
 export function CheckoutWizard({ stripeConfigured }: CheckoutWizardProps) {
   const router = useRouter();
-  const hydrated = useHydrated();
+  const hydrated = useCartHydrated();
   const items = useCartStore((s) => s.items);
   const [stepIndex, setStepIndex] = useState(0);
   const [data, setData] = useState<CheckoutWizardState>(() => {

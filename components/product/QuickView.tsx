@@ -12,6 +12,7 @@ import { Drawer } from "@/components/ui/Drawer";
 import { Button } from "@/components/ui/Button";
 import { Announcer } from "@/components/ui/Announcer";
 import { useCartStore } from "@/lib/cart/store";
+import { useCartUiStore } from "@/lib/cart/ui-store";
 import { useWishlistStore } from "@/lib/cart/wishlist-store";
 import { AgeBadge } from "@/components/product/AgeBadge";
 import { WarningBanner } from "@/components/product/WarningBanner";
@@ -26,6 +27,7 @@ export function QuickView({ product, open, onClose }: QuickViewProps) {
   const [quantity, setQuantity] = useState(1);
   const [announcement, setAnnouncement] = useState("");
   const add = useCartStore((s) => s.add);
+  const openCart = useCartUiStore((s) => s.open);
   const toggleWishlist = useWishlistStore((s) => s.toggle);
   const isWishlisted = useWishlistStore((s) => s.has(product.id));
 
@@ -35,10 +37,13 @@ export function QuickView({ product, open, onClose }: QuickViewProps) {
 
   const handleAdd = () => {
     const result = add(product, quantity);
-    setAnnouncement(
-      result.ok ? `${quantity} × ${product.title} added to cart` : (result.message ?? "Unable to add to cart"),
-    );
-    if (result.ok) onClose();
+    if (result.ok) {
+      setAnnouncement(`${quantity} × ${product.title} added to cart`);
+      onClose();
+      openCart();
+    } else {
+      setAnnouncement(result.message ?? "Unable to add to cart");
+    }
   };
 
   const handleWishlist = () => {

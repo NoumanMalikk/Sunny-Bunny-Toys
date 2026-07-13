@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Announcer } from "@/components/ui/Announcer";
 import { useCartStore } from "@/lib/cart/store";
+import { useCartUiStore } from "@/lib/cart/ui-store";
 import { useWishlistStore } from "@/lib/cart/wishlist-store";
 import { AgeBadge } from "@/components/product/AgeBadge";
 import { WarningIndicator } from "@/components/product/WarningBanner";
@@ -32,6 +33,7 @@ export function ProductCard({ product, className, priority = false }: ProductCar
   const [quickViewOpen, setQuickViewOpen] = useState(false);
   const [announcement, setAnnouncement] = useState("");
   const add = useCartStore((s) => s.add);
+  const openCart = useCartUiStore((s) => s.open);
   const toggleWishlist = useWishlistStore((s) => s.toggle);
   const isWishlisted = useWishlistStore((s) => s.has(product.id));
 
@@ -45,9 +47,12 @@ export function ProductCard({ product, className, priority = false }: ProductCar
     event.preventDefault();
     event.stopPropagation();
     const result = add(product, 1);
-    setAnnouncement(
-      result.ok ? `${product.title} added to cart` : (result.message ?? "Unable to add to cart"),
-    );
+    if (result.ok) {
+      setAnnouncement(`${product.title} added to cart`);
+      openCart();
+    } else {
+      setAnnouncement(result.message ?? "Unable to add to cart");
+    }
   };
 
   const handleWishlist = (event: React.MouseEvent) => {
