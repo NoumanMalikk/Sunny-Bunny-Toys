@@ -34,6 +34,35 @@ type StoredDemoOrder = {
 
 const DEMO_ORDER_KEY = "sunny-bunny-demo-order";
 
+function readStoredDemoOrder(): StoredDemoOrder | null {
+  if (typeof window === "undefined") return null;
+  try {
+    return JSON.parse(sessionStorage.getItem(DEMO_ORDER_KEY) || "null") as StoredDemoOrder | null;
+  } catch {
+    return null;
+  }
+}
+
+function buildDemoResponse(orderRef: string, stored: StoredDemoOrder | null): ConfirmResponse {
+  return {
+    ok: true,
+    verified: true,
+    demo: true,
+    message: "Demo order confirmed. No payment was collected.",
+    order: {
+      orderRef: orderRef.toUpperCase(),
+      status: "processing",
+      paymentStatus: "demo_blocked",
+      total: stored?.total ?? 0,
+      customer: {
+        firstName: stored?.firstName || "there",
+        email: stored?.email || "",
+      },
+      items: stored?.items ?? [],
+    },
+  };
+}
+
 export function CheckoutSuccessPage() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id");
@@ -41,41 +70,29 @@ export function CheckoutSuccessPage() {
   const isDemoParam = searchParams.get("demo") === "1";
   const hasRef = Boolean(sessionId || orderRef);
 
-  const [state, setState] = useState<"loading" | "verified" | "blocked" | "error">(
-    hasRef ? "loading" : "error",
-  );
-  const [response, setResponse] = useState<ConfirmResponse | null>(null);
+  const [state, setState] = useState<"loading" | "verified" | "blocked" | "error">(() => {
+    if (!hasRef) return "error";
+    if (isDemoParam && orderRef) return "verified";
+    return "loading";
+  });
+  const [response, setResponse] = useState<ConfirmResponse | null>(() => {
+    if (isDemoParam && orderRef) {
+      return buildDemoResponse(orderRef, null);
+    }
+    return null;
+  });
 
   useEffect(() => {
     if (!hasRef) return;
 
-    const stored =
-      typeof window !== "undefined"
-        ? (JSON.parse(sessionStorage.getItem(DEMO_ORDER_KEY) || "null") as StoredDemoOrder | null)
-        : null;
-
     if (isDemoParam && orderRef) {
-      const demoResponse: ConfirmResponse = {
-        ok: true,
-        verified: true,
-        demo: true,
-        message: "Demo order confirmed. No payment was collected.",
-        order: {
-          orderRef: orderRef.toUpperCase(),
-          status: "processing",
-          paymentStatus: "demo_blocked",
-          total: stored?.total ?? 0,
-          customer: {
-            firstName: stored?.firstName || "there",
-            email: stored?.email || "",
-          },
-          items: stored?.items ?? [],
-        },
-      };
-      setResponse(demoResponse);
-      setState("verified");
-      sessionStorage.removeItem(DEMO_ORDER_KEY);
-      return;
+      const stored = readStoredDemoOrder();
+      const frame = requestAnimationFrame(() => {
+        setResponse(buildDemoResponse(orderRef, stored));
+        setState("verified");
+        sessionStorage.removeItem(DEMO_ORDER_KEY);
+      });
+      return () => cancelAnimationFrame(frame);
     }
 
     const params = new URLSearchParams();
@@ -88,13 +105,7 @@ export function CheckoutSuccessPage() {
       .then((data: ConfirmResponse) => {
         if (cancelled) return;
         setResponse(data);
-        if (data.verified) {
-          setState("verified");
-        } else if (data.demo) {
-          setState("blocked");
-        } else {
-          setState("blocked");
-        }
+        setState(data.verified ? "verified" : "blocked");
       })
       .catch(() => {
         if (!cancelled) setState("error");
