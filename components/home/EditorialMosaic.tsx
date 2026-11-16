@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Image } from "@/components/ui/StaticImage";
 import Link from "next/link";
 import { getProductBySlug } from "@/data/products";
 import { cn } from "@/lib/utilities/cn";

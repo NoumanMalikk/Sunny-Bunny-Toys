@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { Image } from "@/components/ui/StaticImage";
 import Link from "next/link";
 import { X } from "lucide-react";
 import type { Product, ProductCategory } from "@/lib/types/product";

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Image } from "@/components/ui/StaticImage";
 import { cn } from "@/lib/utilities/cn";
 
 export type HeroSceneVisualProps = {

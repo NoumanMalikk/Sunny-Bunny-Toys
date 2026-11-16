@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { Image } from "@/components/ui/StaticImage";
 import { useMemo } from "react";
 import { useCartStore } from "@/lib/cart/store";
 import { calculateDemoShipping } from "@/lib/checkout/shipping";

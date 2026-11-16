@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Image } from "@/components/ui/StaticImage";
 import { getProductBySlug } from "@/data/products";
 import { SectionHeader } from "@/components/home/decor/SectionHeader";
 import { AgeBadge } from "@/components/product/AgeBadge";

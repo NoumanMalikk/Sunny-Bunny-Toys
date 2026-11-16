@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import Image from "next/image";
+import { Image } from "@/components/ui/StaticImage";
 import { ZoomIn } from "lucide-react";
 import type { ProductImage } from "@/lib/types/product";
 import { cn } from "@/lib/utilities/cn";
