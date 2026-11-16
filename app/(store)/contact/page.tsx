@@ -25,15 +25,11 @@ export default function ContactPage() {
           <h2 className="font-display text-xl text-navy">Business information</h2>
           <address className="mt-4 space-y-2 text-sm not-italic leading-relaxed text-text-secondary">
             <p className="font-semibold text-navy">{brand.legalName}</p>
-            {storeMode.showFullAddress ? (
-              <p>
-                {brand.address.line1}
-                <br />
-                {brand.address.city}, {brand.address.state} {brand.address.postalCode}
-              </p>
-            ) : (
-              <p>{brand.cityStateZip}</p>
-            )}
+            <p>
+              {brand.address.line1}
+              <br />
+              {brand.address.city}, New Jersey {brand.address.postalCode}
+            </p>
             <p>{brand.locationDescriptor}</p>
             <p>
               Phone:{" "}

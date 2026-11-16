@@ -106,14 +106,14 @@ function buildProduct(draft: Draft): Product {
     safetyInstructions: draft.safetyInstructions,
     images: [
       {
-        src: `/products/${draft.slug}/main.png`,
+        src: `/products/${draft.slug}/main.webp`,
         alt: `${draft.title} on a white background`,
         type: "main",
       },
     ],
     imageSource: "commissioned",
     imageLicense:
-      "Studio-style presentation photography matching the merchandising title. Replace with manufacturer-authorized media before production launch.",
+      "Studio catalog photograph prepared for this product title. Replace with manufacturer-authorized media when a licensed file is available.",
     availableColors: draft.colors ?? [],
     availableVariants:
       draft.colors?.map((c, i) => ({

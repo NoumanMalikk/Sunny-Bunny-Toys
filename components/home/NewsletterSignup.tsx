@@ -34,7 +34,7 @@ export function NewsletterSignup() {
       }
 
       setStatus("success");
-      setMessage("Thank you. check your inbox for a confirmation.");
+      setMessage("Thank you. Check your inbox for a confirmation.");
       setEmail("");
       setMarketingConsent(false);
     } catch {
@@ -45,17 +45,17 @@ export function NewsletterSignup() {
 
   return (
     <section aria-labelledby="newsletter-heading" className="container-store py-16 md:py-20">
-      <div className="relative overflow-hidden rounded-[var(--radius-editorial)] bg-deep-mint px-6 py-10 text-cloud md:px-12 md:py-14">
+      <div className="relative overflow-hidden rounded-[var(--radius-editorial)] bg-navy px-6 py-10 text-cloud md:px-12 md:py-14">
         <BrandMark tone="dark" className="absolute -right-6 -top-6 h-28 w-28 opacity-20 md:h-36 md:w-36" aria-hidden="true" />
 
         <div className="relative mx-auto max-w-xl text-center">
-          <p className="eyebrow mb-2 text-mint/80">Stay in the loop</p>
+          <p className="eyebrow mb-2 text-sunshine">Stay in the loop</p>
           <h2 id="newsletter-heading" className="font-display text-3xl text-cloud md:text-4xl">
-            Sunny days in your inbox
+            New arrivals and gift ideas
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-cloud/85 md:text-base">
-            Sign-up is for adults only. Get new arrivals, journal posts and seasonal gift ideas from{" "}
-            {brand.publicName}. no child profiles or personal data collected.
+            Sign-up is for adults only. Get new arrivals, journal posts, and seasonal gift ideas from{" "}
+            {brand.publicName}. No child profiles are created.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-4 text-left">

@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProductBySlug } from "@/data/products";
 import { Button } from "@/components/ui/Button";
-import { CloudCluster } from "@/components/home/decor/CloudDecor";
-import { PaperCutHills } from "@/components/home/decor/PaperCutHills";
 
 const outdoorSlugs = [
   "sunshine-ring-toss-game",
@@ -16,18 +14,17 @@ export function OutdoorPanorama() {
 
   return (
     <section aria-labelledby="outdoor-heading" className="relative overflow-hidden py-16 md:py-24">
-      <div className="absolute inset-0 bg-gradient-to-b from-sky/25 via-cream to-golden/15" aria-hidden="true" />
-      <CloudCluster />
+      <div className="absolute inset-0 bg-gradient-to-b from-cream via-cream to-sunshine/15" aria-hidden="true" />
 
       <div className="container-wide relative">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow mb-3 text-golden">Outdoor play</p>
+          <p className="eyebrow mb-3 text-coral">Outdoor play</p>
           <h2 id="outdoor-heading" className="font-display text-3xl leading-tight text-navy md:text-5xl">
             Take play into the sunshine.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-text-secondary md:text-lg">
-            Ring toss, bubble wands and scavenger-hunt cards for open spaces. use in safe areas away from roads
-            and glass, with adult supervision where noted on the product page.
+            Ring toss, bubble wands, and scavenger-hunt cards for open spaces. Use them in safe areas away from roads
+            and glass, with adult supervision where the product page says so.
           </p>
         </div>
 
@@ -69,8 +66,6 @@ export function OutdoorPanorama() {
           </Button>
         </div>
       </div>
-
-      <PaperCutHills className="absolute bottom-0 left-0 right-0 h-16 opacity-60" />
     </section>
   );
 }

@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Bricolage_Grotesque,
-  Fraunces,
-  Inter,
-  Manrope,
-} from "next/font/google";
+import { Fraunces, Manrope } from "next/font/google";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -14,12 +9,6 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { brand, seoDefaults, storeMode } from "@/data/store-config";
 import "./globals.css";
 
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
-  subsets: ["latin"],
-  display: "swap",
-});
-
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
@@ -28,12 +17,6 @@ const fraunces = Fraunces({
 
 const manrope = Manrope({
   variable: "--font-manrope",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const inter = Inter({
-  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -68,7 +51,7 @@ export default function RootLayout({
     <html
       lang="en"
       style={{ colorScheme: "light" }}
-      className={`${bricolage.variable} ${fraunces.variable} ${manrope.variable} ${inter.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-cream text-text">
         <JsonLd />

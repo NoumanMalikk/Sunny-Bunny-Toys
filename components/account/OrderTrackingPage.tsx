@@ -81,7 +81,7 @@ export function OrderTrackingPage() {
         {storeMode.mode === "demo" ? (
           <DemoNotice
             className="mt-8"
-            message="Demonstration mode uses an in-memory order store. Orders created during this session may be looked up; data resets when the server restarts."
+            message="Use the order reference and the email from checkout. Orders from this visit can be looked up here."
           />
         ) : null}
 

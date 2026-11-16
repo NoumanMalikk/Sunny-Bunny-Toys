@@ -9,7 +9,7 @@ export function PlayStyleSection() {
       <SectionHeader
         eyebrow="How they play"
         title="Find their play style"
-        description="Browse by the kind of play that sparks joy. pretend worlds, building, creating, puzzles or outdoor fun."
+        description="Browse by the kind of play you want: pretend worlds, building, creating, puzzles, or outdoor fun."
         align="center"
       />
 

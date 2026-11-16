@@ -24,11 +24,11 @@ type WordmarkTone = "color" | "dark" | "mono";
 function wordmarkColors(tone: WordmarkTone) {
   switch (tone) {
     case "dark":
-      return { primary: "#FFF8E9", secondary: "#FFD457" };
+      return { primary: "#F6F3EC", secondary: "#E2A20A" };
     case "mono":
-      return { primary: "#203247", secondary: "#203247" };
+      return { primary: "#17324D", secondary: "#17324D" };
     default:
-      return { primary: "#203247", secondary: "#64717B" };
+      return { primary: "#17324D", secondary: "#5C6B78" };
   }
 }
 

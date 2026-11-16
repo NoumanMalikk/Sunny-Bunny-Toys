@@ -9,19 +9,13 @@ export type HeroSceneVisualProps = {
 
 const scenes = {
   imagine: {
-    wash: "from-[#FFF6E0] via-[#FFE79A] to-[#B8EBD4]",
-    orb: "bg-[#FFD457]/55",
-    orbTwo: "bg-[#55CFA8]/35",
+    wash: "from-[#FBF8F2] via-[#F8E7C4] to-[#F6F3EC]",
   },
   build: {
-    wash: "from-[#DFF3FC] via-[#F4FAFF] to-[#FFE7A8]",
-    orb: "bg-[#79C9F4]/45",
-    orbTwo: "bg-[#F5B83D]/35",
+    wash: "from-[#F4F7FA] via-[#E7EEF4] to-[#F6F3EC]",
   },
   together: {
-    wash: "from-[#E9E4FF] via-[#FFF8F3] to-[#FFD3C8]",
-    orb: "bg-[#A89AEF]/40",
-    orbTwo: "bg-[#FF7968]/30",
+    wash: "from-[#FBF6F4] via-[#F6E4E1] to-[#F6F3EC]",
   },
 } as const;
 
@@ -39,16 +33,16 @@ function ProductShot({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-[1.5rem] bg-white shadow-[0_22px_50px_rgba(32,50,71,0.18)] ring-1 ring-black/5",
+        "relative overflow-hidden rounded-[12px] bg-white shadow-[0_18px_40px_rgba(23,50,77,0.16)] ring-1 ring-black/5",
         className,
       )}
     >
       <Image
-        src={`/products/${slug}/main.png`}
+        src={`/products/${slug}/main.webp`}
         alt=""
         fill
         priority={priority}
-        className="object-contain p-5 sm:p-6"
+        className="object-contain p-2"
         sizes={sizes}
       />
     </div>
@@ -60,12 +54,10 @@ export function HeroSceneVisual({ variant, productSlugs, className }: HeroSceneV
   const [primary, secondary, tertiary] = productSlugs;
 
   return (
-    <div
+      <div
       className={cn("absolute inset-0 overflow-hidden bg-gradient-to-br", scene.wash, className)}
       aria-hidden="true"
     >
-      <div className={cn("pointer-events-none absolute -right-16 -top-8 h-[30rem] w-[30rem] rounded-full blur-3xl", scene.orb)} />
-      <div className={cn("pointer-events-none absolute bottom-0 left-[40%] h-72 w-72 rounded-full blur-3xl", scene.orbTwo)} />
 
       {/* Desktop collage: right half only */}
       <div className="absolute inset-y-0 right-0 hidden w-[50%] items-center justify-center p-8 lg:flex xl:w-[48%] xl:p-12">

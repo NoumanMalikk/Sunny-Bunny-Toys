@@ -115,8 +115,8 @@ export function Header() {
           "sticky top-0 z-40 transition-[transform,background-color,border-color,box-shadow,height] duration-[250ms] ease-out",
           isHidden && !overlayOpen && !hasFocusWithin && "-translate-y-full",
           isScrolled
-            ? "h-14 border-b border-border bg-cream/95 shadow-[var(--shadow-soft)] backdrop-blur-md"
-            : "h-[var(--header-height)] border-b border-transparent bg-cream/55 backdrop-blur-sm",
+            ? "h-14 border-b border-border bg-cloud shadow-soft"
+            : "h-[var(--header-height)] border-b border-border bg-cloud",
         )}
         onFocusCapture={() => setHasFocusWithin(true)}
         onBlurCapture={(event) => {

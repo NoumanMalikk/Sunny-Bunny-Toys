@@ -14,13 +14,13 @@ export const brand = {
     "Discover dolls, plush friends, pretend-play sets, building toys, creative activities, puzzles and family games selected for joyful everyday play.",
   editorial: "More wonder in every day.",
   owner: "Darryl Lee Proffitt",
-  locationDescriptor: "Moultrie, Georgia-based online toy retailer",
-  cityStateZip: "Moultrie, Georgia 31768",
+  locationDescriptor: "Online toy retailer in Hamilton Township, New Jersey",
+  cityStateZip: "Hamilton Township, New Jersey 08610",
   address: {
-    line1: "2615 Sylvester Dr",
-    city: "Moultrie",
-    state: "GA",
-    postalCode: "31768",
+    line1: "1700 S Broad St",
+    city: "Hamilton Township",
+    state: "NJ",
+    postalCode: "08610",
     country: "United States",
     countryCode: "US",
   },
@@ -53,14 +53,14 @@ export const shippingConfig = {
     {
       id: "standard",
       name: "Standard Shipping",
-      description: "Demonstration rate. connect a carrier for live rates.",
+      description: "Ground delivery within the United States.",
       estimatedDays: "5-8 business days",
       baseRate: 8.95,
     },
     {
       id: "expedited",
       name: "Expedited Shipping",
-      description: "Demonstration rate. connect a carrier for live rates.",
+      description: "Faster delivery within the United States.",
       estimatedDays: "2-4 business days",
       baseRate: 16.95,
     },
@@ -71,7 +71,7 @@ export const taxConfig = {
   enabled: true,
   provider: "stripe-tax" as "stripe-tax" | "manual" | "external",
   message: "Taxes are calculated during checkout.",
-  demoNote: "Demonstration mode shows estimated tax readiness without collecting payment.",
+  demoNote: "Tax is estimated during checkout and confirmed before an order is paid.",
 };
 
 export const giftConfig = {
@@ -114,5 +114,5 @@ export const seoDefaults = {
   homeDescription:
     "Shop dolls, plush toys, pretend-play sets, building toys, creative activities, puzzles and family games from Sunny Bunny Toys LLC.",
   organizationDescription:
-    "Sunny Bunny Toys LLC is a Moultrie, Georgia-based online retailer of dolls, toys, creative activities and family games.",
+    "Sunny Bunny Toys LLC is an online retailer in Hamilton Township, New Jersey, offering dolls, toys, creative activities and family games.",
 };

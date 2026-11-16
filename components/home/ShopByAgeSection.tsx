@@ -3,10 +3,9 @@ import Link from "next/link";
 import { ageGroups } from "@/data/categories";
 import { getActiveProducts } from "@/data/products";
 import { SectionHeader } from "@/components/home/decor/SectionHeader";
-import { BunnyEarArch } from "@/components/home/decor/BunnyEarArch";
 import { cn } from "@/lib/utilities/cn";
 
-const ageAccents = ["#A89AEF", "#79C9F4", "#55CFA8", "#F5B83D"];
+const ageAccents = ["#17324D", "#E2A20A", "#C5362B", "#C48A08"];
 
 const ageProductSlugs = [
   "honeyhop-plush-bunny-12-inch",
@@ -31,13 +30,11 @@ export function ShopByAgeSection() {
 
   return (
     <section aria-labelledby="shop-by-age-heading" className="home-section relative overflow-hidden">
-      <BunnyEarArch className="absolute right-[5%] top-8 h-14 w-36 opacity-50 md:h-20 md:w-48" />
-
       <div className="container-store relative">
         <SectionHeader
           eyebrow="Shop by age"
           title="Find a great match for their stage"
-          description="Browse by age range to narrow options. always confirm the age grade and warnings on each product page before purchase."
+          description="Browse by age range to narrow the options. Confirm the age grade and warnings on each product page before purchase."
         />
 
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5" role="list">

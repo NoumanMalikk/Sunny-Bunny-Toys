@@ -62,7 +62,7 @@ export function GiftFinder() {
       <SectionHeader
         eyebrow="Gift finder"
         title="Find a thoughtful gift"
-        description="For adults choosing a gift. select an age range, play interest and budget. We match catalogue products only; no personal data is collected."
+        description="Choose an age range, a play interest, and a budget. Matches come from the catalogue only, and no personal data is collected."
         align="center"
       />
 
@@ -161,7 +161,7 @@ export function GiftFinder() {
               </ul>
             ) : (
               <p className="rounded-[var(--radius-card)] bg-soft-gray px-6 py-10 text-center text-text-secondary">
-                No exact matches in this combination. try a different interest or budget, or browse{" "}
+                No exact matches for this combination. Try a different interest or budget, or browse{" "}
                 <Link href="/gifts" className="font-semibold text-deep-mint underline-offset-2 hover:underline">
                   all gifts
                 </Link>

@@ -4,7 +4,7 @@ import { brand } from "@/data/store-config";
 export const metadata: Metadata = {
   title: "About Sunny Bunny Toy Co.",
   description:
-    "Learn about Sunny Bunny Toys LLC, a Moultrie, Georgia-based online toy retailer offering dolls, plush toys, creative activities, puzzles and family games.",
+    "Learn about Sunny Bunny Toys LLC, an online toy retailer in Hamilton Township, New Jersey offering dolls, plush toys, creative activities, puzzles and family games.",
 };
 
 export default function AboutPage() {
@@ -19,8 +19,9 @@ export default function AboutPage() {
 
       <div className="policy-prose mx-auto mt-10 max-w-3xl">
         <p>
-          {brand.legalName} is a Moultrie, Georgia-based online toy retailer offering dolls, plush toys,
-          pretend-play sets, building activities, creative products, puzzles and family games.
+          {brand.legalName} is an online toy retailer at {brand.address.line1}, {brand.address.city},{" "}
+          New Jersey {brand.address.postalCode}. The shop offers dolls, plush toys, pretend-play sets, building
+          activities, creative products, puzzles and family games.
         </p>
         <p>
           The {brand.publicName} store is designed to help adult buyers explore products by category, play
@@ -31,7 +32,7 @@ export default function AboutPage() {
           and applicable warnings before purchase.
         </p>
         <p>
-          Sunny Bunny&apos;s goal is to make finding a thoughtful toy feel bright, simple and enjoyable.
+          The shop is built for adult buyers who want clear product details, age guidance, and a direct way to order.
         </p>
       </div>
 

@@ -2,7 +2,7 @@ export const faqItems = [
   {
     question: "Is Sunny Bunny Toy Co. a walk-in store?",
     answer:
-      "Sunny Bunny Toys LLC is a Moultrie, Georgia-based online toy retailer. The registered address is a business or mailing address and is not presented as a public showroom or local pickup location unless the owner later configures that service.",
+      "Sunny Bunny Toys LLC is an online toy retailer at 1700 S Broad St, Hamilton Township, New Jersey 08610. That address is a business mailing address. It is not a public showroom or local pickup location.",
   },
   {
     question: "How do I find toys by age?",
@@ -20,9 +20,9 @@ export const faqItems = [
       "Yes. During checkout you can mark an order as a gift and include a gift note. Gift wrapping appears only when that option is enabled in store settings.",
   },
   {
-    question: "How does demo checkout work?",
+    question: "When is payment collected?",
     answer:
-      "When payment credentials are not connected, checkout forms can be tested without collecting real card details. Orders are not marked paid and production emails are not sent.",
+      "Checkout collects a shipping address and order review first. Card payment is collected only after payment processing is connected. Until then, an order is not marked paid and a confirmation email is not sent.",
   },
   {
     question: "How do I track an order?",

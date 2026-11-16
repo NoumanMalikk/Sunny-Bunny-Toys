@@ -11,16 +11,25 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Serve files from /public directly. Vercel's Image Optimization quota
+  // was dropping catalog photos on the free plan.
   images: {
-    dangerouslyAllowSVG: true,
-    contentDispositionType: "attachment",
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    unoptimized: true,
   },
   async headers() {
     return [
       {
         source: "/:path*",
         headers: securityHeaders,
+      },
+      {
+        source: "/products/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=2592000, stale-while-revalidate=86400",
+          },
+        ],
       },
     ];
   },

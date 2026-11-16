@@ -69,7 +69,7 @@ test.describe("Sunny Bunny Toy Co. smoke tests", () => {
           title: "Honeyhop Plush Bunny, 12 Inch, Butter Yellow",
           price: 24,
           quantity: 1,
-          image: "/products/honeyhop-plush-bunny-12-inch/main.png",
+          image: "/products/honeyhop-plush-bunny-12-inch/main.webp",
           ageMinimum: 3,
           ageMaximum: null,
           warningText: null,
@@ -84,7 +84,7 @@ test.describe("Sunny Bunny Toy Co. smoke tests", () => {
 
     await page.goto("/checkout");
     await expect(page.getByRole("heading", { name: /^checkout$/i })).toBeVisible();
-    await expect(page.getByText(/demo mode|demonstration mode/i).first()).toBeVisible();
+    await expect(page.getByText(/not active on this site yet/i).first()).toBeVisible();
   });
 
   test("/admin route returns 404", async ({ page }) => {

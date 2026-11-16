@@ -12,7 +12,7 @@ export function NewArrivalsSection() {
         <SectionHeader
           eyebrow="New in the playroom"
           title="Fresh ways to play"
-          description="Recently added dolls, building sets, creative kits and family games. each shown with matching photography and age guidance."
+          description="Recently added dolls, building sets, creative kits, and family games, each with a photo and age guidance."
           href="/new-arrivals"
           linkLabel="See all new arrivals"
         />

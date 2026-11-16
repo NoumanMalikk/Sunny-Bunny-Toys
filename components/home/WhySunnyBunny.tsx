@@ -5,31 +5,31 @@ import { cn } from "@/lib/utilities/cn";
 const trustCards = [
   {
     icon: Camera,
-    title: "Exact product photography",
+    title: "Studio product photography",
     description:
-      "Every product page is designed for authorized photography before launch. what you see will match the verified listing.",
-    accent: "#FFD457",
+      "Each listing uses a clear product photo so you can see the toy before you order.",
+    accent: "#E2A20A",
   },
   {
     icon: ClipboardList,
     title: "Clear age guidance",
     description:
-      "Verified age grades, piece counts, materials and applicable warnings appear on each product page. read before purchase.",
-    accent: "#79C9F4",
+      "Age grades, piece counts, materials, and warnings are listed on each product page. Read them before you buy.",
+    accent: "#17324D",
   },
   {
     icon: ShieldCheck,
     title: "Detailed product information",
     description:
-      "Package contents, care instructions and safety notes are listed for every active product. no hidden surprises.",
-    accent: "#55CFA8",
+      "Package contents, care instructions, and safety notes are listed for every product in the shop.",
+    accent: "#C5362B",
   },
   {
     icon: Lock,
     title: "Secure checkout",
     description:
-      "Checkout uses industry-standard encryption. Taxes and shipping are calculated during checkout based on your order.",
-    accent: "#A89AEF",
+      "Checkout uses industry-standard encryption. Taxes and shipping are calculated from your order.",
+    accent: "#C48A08",
   },
 ] as const;
 
@@ -39,7 +39,7 @@ export function WhySunnyBunny() {
       <SectionHeader
         eyebrow="Why Sunny Bunny"
         title="Thoughtful toys, transparent details"
-        description="We focus on clear product information, verified age guidance and a secure shopping experience. so adults can choose with confidence."
+        description="Clear product information, age guidance, and a straightforward checkout for adult buyers."
         align="center"
       />
 

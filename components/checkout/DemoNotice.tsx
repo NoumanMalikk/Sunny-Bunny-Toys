@@ -8,7 +8,7 @@ export type DemoNoticeProps = {
 };
 
 export function DemoNotice({
-  title = "Demonstration mode",
+  title = "Please note",
   message,
   className,
 }: DemoNoticeProps) {

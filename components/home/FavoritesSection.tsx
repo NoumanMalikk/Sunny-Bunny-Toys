@@ -12,7 +12,7 @@ export function FavoritesSection() {
         <SectionHeader
           eyebrow="Curated for you"
           title="Playroom favorites"
-          description="Handpicked dolls, building sets, games and creative kits. presented in matching cards with clear age guidance and pricing."
+          description="Dolls, building sets, games, and creative kits, shown with age guidance and pricing."
           href="/shop"
           linkLabel="Browse the shop"
         />

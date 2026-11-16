@@ -51,7 +51,7 @@ export function PlushFriendsSection() {
         <SectionHeader
           eyebrow="Plush friends"
           title="Soft companions for every story"
-          description="Honeyhop, Clover, Peachy Paws and Lavender Lark. each with height, price and wishlist at a glance."
+          description="Honeyhop, Clover, Peachy Paws, and Lavender Lark, with height, price, and wishlist on each card."
           href="/dolls-plush"
           linkLabel="Shop all plush"
         />

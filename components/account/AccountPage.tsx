@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { User } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { DemoNotice } from "@/components/checkout/DemoNotice";
 
 export function AccountPage() {
   const supabaseConfigured = Boolean(
@@ -21,13 +20,9 @@ export function AccountPage() {
         ) : (
           <>
             <p className="mt-3 text-text-secondary">
-              Customer accounts will be available when Supabase authentication is configured. For now, use order
-              tracking with your order reference and email.
+              Customer accounts will be available when sign-in is connected. Until then, track an order with the
+              reference and email from checkout.
             </p>
-            <DemoNotice
-              className="mt-8 text-left"
-              message="Demonstration mode. local order history is not persisted. Configure Supabase environment variables to enable accounts."
-            />
           </>
         )}
 

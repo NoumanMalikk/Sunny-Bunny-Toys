@@ -10,24 +10,24 @@ export interface BrandMarkProps extends React.SVGProps<SVGSVGElement> {
 
 const toneColors = {
   color: {
-    playPath: "#55CFA8",
-    ears: "#203247",
-    sparkle: "#F5B83D",
-    rays: "#FFD457",
+    playPath: "#C5362B",
+    ears: "#17324D",
+    sparkle: "#E2A20A",
+    rays: "#E2A20A",
     sun: "gradient" as const,
   },
   dark: {
-    playPath: "#55CFA8",
-    ears: "#FFF8E9",
-    sparkle: "#FFD457",
-    rays: "#FFD457",
+    playPath: "#E2A20A",
+    ears: "#F6F3EC",
+    sparkle: "#E2A20A",
+    rays: "#E2A20A",
     sun: "gradient" as const,
   },
   mono: {
-    playPath: "#203247",
-    ears: "#203247",
-    sparkle: "#203247",
-    rays: "#203247",
+    playPath: "#17324D",
+    ears: "#17324D",
+    sparkle: "#17324D",
+    rays: "#17324D",
     sun: "solid" as const,
   },
 };
@@ -53,8 +53,8 @@ export function BrandMarkPaths({
             y2="42"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#FFD457" />
-            <stop offset="1" stopColor="#F5B83D" />
+            <stop stopColor="#E2A20A" />
+            <stop offset="1" stopColor="#C48A08" />
           </linearGradient>
         </defs>
       ) : null}
@@ -66,7 +66,7 @@ export function BrandMarkPaths({
       />
       <path
         d="M13 39.5a19 19 0 0 1 38 0"
-        fill={colors.sun === "gradient" ? `url(#${gradId})` : "#203247"}
+        fill={colors.sun === "gradient" ? `url(#${gradId})` : "#17324D"}
       />
       <path
         d="M32 12v5M21.5 17.8l3.5 4.3M42.5 17.8l-3.5 4.3"

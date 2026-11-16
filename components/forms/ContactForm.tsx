@@ -69,7 +69,7 @@ export function ContactForm() {
       }
 
       setStatus("success");
-      setFormMessage(data.message ?? "Thank you. your message has been received.");
+      setFormMessage(data.message ?? "Thank you. Your message has been received.");
       setName("");
       setEmail("");
       setPhone("");

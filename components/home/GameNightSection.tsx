@@ -33,7 +33,7 @@ export function GameNightSection() {
         <SectionHeader
           eyebrow="Family game night"
           title="Gather around the table"
-          description="Verified player counts, age grades, piece counts and play times. only details listed on each product page."
+          description="Player counts, age grades, piece counts, and play times are listed on each product page."
           href="/collections/family-game-night"
           linkLabel="Shop family games"
           theme="dark"

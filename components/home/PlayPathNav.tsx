@@ -14,7 +14,7 @@ export function PlayPathNav() {
       <ul className="container-wide grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 lg:gap-4">
         {playPathCards.map((card) => {
           const product = getProductBySlug(card.productSlug);
-          const imageSrc = product?.images[0]?.src ?? `/products/${card.productSlug}/main.png`;
+          const imageSrc = product?.images[0]?.src ?? `/products/${card.productSlug}/main.webp`;
 
           return (
             <li key={card.id} className="h-full">

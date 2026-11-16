@@ -92,7 +92,7 @@ export default function TermsPage() {
 
       <h2>Governing law</h2>
       <p>
-        These Terms are governed by the laws of the State of Georgia, without regard to conflict-of-law
+        These Terms are governed by the laws of the State of New Jersey, without regard to conflict-of-law
         principles, except where mandatory consumer protections in your state of residence apply.
       </p>
 

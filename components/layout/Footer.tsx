@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
-import { brand, storeMode } from "@/data/store-config";
+import { brand } from "@/data/store-config";
 import { footerNav } from "@/data/navigation";
 
 const footerColumns = [
@@ -29,8 +29,11 @@ export function Footer() {
             <div className="space-y-1 text-sm text-text-secondary">
               <p className="font-display text-base text-navy">{brand.legalName}</p>
               <p>{brand.descriptor}</p>
+              <p>{brand.address.line1}</p>
+              <p>
+                {brand.address.city}, New Jersey {brand.address.postalCode}
+              </p>
               <p>{brand.locationDescriptor}</p>
-              <p>{brand.cityStateZip}</p>
               <p>
                 <a
                   href={brand.phoneHref}
@@ -84,9 +87,6 @@ export function Footer() {
               </li>
             ))}
           </ul>
-          {storeMode.mode === "demo" ? (
-            <p className="text-[0.7rem] uppercase tracking-wide">Demonstration store</p>
-          ) : null}
         </div>
       </div>
     </footer>

@@ -12,7 +12,7 @@ const mosaicItems = [
   { slug: "sunny-cottage-dollhouse-playset-20-piece", span: "md:col-span-2 md:row-span-1" },
 ] as const;
 
-const accentBg = ["from-lavender/20", "from-sky/20", "from-peach/20", "from-mint/20", "from-golden/20", "from-coral/15"];
+const accentBg = ["from-sunshine/20", "from-navy/10", "from-coral/15", "from-sunshine/15", "from-navy/10", "from-coral/10"];
 
 export function EditorialMosaic() {
   return (
@@ -23,7 +23,7 @@ export function EditorialMosaic() {
           A sunlit collection
         </h2>
         <p className="mx-auto mt-3 max-w-lg text-sm text-text-secondary md:text-base">
-          Product photography from the catalogue. each item on a clean white studio background.
+          Studio photography for the current catalogue, each item on a clean white background.
         </p>
       </div>
 

@@ -27,7 +27,7 @@ export default function ShippingPage() {
 
       {shippingConfig.shippingEnabled ? (
         <>
-          <p>Demonstration shipping methods currently shown include:</p>
+          <p>Methods available at checkout include:</p>
           <ul>
             {shippingConfig.demoMethods.map((method) => (
               <li key={method.id}>

@@ -39,9 +39,14 @@ export function ProductCard({ product, className, priority = false }: ProductCar
 
   const activation = canAddToCart(product);
   const mainImage = product.images[0];
-  const detailLine = product.pieceCount
-    ? `${product.pieceCount} pieces · ${product.keyDetail}`
-    : product.keyDetail;
+  const pieceLabel = product.pieceCount ? `${product.pieceCount} pieces` : null;
+  const detailAlreadyCountsPieces = pieceLabel
+    ? product.keyDetail.toLowerCase().includes("piece")
+    : false;
+  const detailLine =
+    pieceLabel && !detailAlreadyCountsPieces
+      ? `${pieceLabel} · ${product.keyDetail}`
+      : product.keyDetail;
 
   const handleAddToCart = (event: React.MouseEvent) => {
     event.preventDefault();

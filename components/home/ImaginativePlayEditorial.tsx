@@ -3,8 +3,6 @@ import Link from "next/link";
 import { getProductBySlug } from "@/data/products";
 import { Button } from "@/components/ui/Button";
 import { BrandMark } from "@/components/brand/BrandMark";
-import { CloudDecor } from "@/components/home/decor/CloudDecor";
-import { PaperCutHillsMint } from "@/components/home/decor/PaperCutHills";
 import { cn } from "@/lib/utilities/cn";
 
 const floatingProducts = [
@@ -25,19 +23,17 @@ export function ImaginativePlayEditorial() {
       aria-labelledby="imaginative-editorial-heading"
       className="relative overflow-hidden py-16 md:py-24"
     >
-      <div className="paper-cut absolute inset-0" aria-hidden="true" />
-      <CloudDecor size="lg" className="absolute right-[10%] top-[10%] text-lavender/40" />
+      <div className="absolute inset-0 bg-cream" aria-hidden="true" />
 
       <div className="container-wide relative grid items-center gap-10 lg:grid-cols-[3fr_2fr] lg:gap-16">
         <div className="relative z-10 max-w-xl">
-          <p className="eyebrow mb-3 text-lavender">Imaginative Play</p>
+          <p className="eyebrow mb-3 text-coral">Imaginative Play</p>
           <h2 id="imaginative-editorial-heading" className="font-display text-3xl leading-tight text-navy md:text-5xl">
             Stories Start Here
           </h2>
           <p className="mt-5 font-editorial text-lg leading-relaxed text-text-secondary md:text-xl">
-            Turn an ordinary afternoon into a tea party, a market run or a cozy cottage adventure. Soft dolls,
-            plush friends and pretend-play sets invite open-ended stories. with age guidance and warnings
-            clearly listed on every product page.
+            Turn an ordinary afternoon into a tea party, a market run, or a cottage adventure. Soft dolls,
+            plush friends, and pretend-play sets are listed with age guidance and warnings on every product page.
           </p>
           <Button href="/collections/imaginative-play" size="lg" className="mt-8">
             Shop Imaginative Play
@@ -46,11 +42,10 @@ export function ImaginativePlayEditorial() {
 
         <div className="relative min-h-[380px] md:min-h-[460px]">
           <div
-            className="absolute inset-0 rounded-[var(--radius-editorial)] border border-border bg-gradient-to-br from-lavender/15 via-cream to-peach/20 shadow-soft"
+            className="absolute inset-0 rounded-[var(--radius-editorial)] border border-border bg-gradient-to-br from-sunshine/15 via-cream to-coral/10 shadow-soft"
             aria-hidden="true"
           >
             <BrandMark className="absolute right-6 top-6 h-12 w-12 opacity-30 md:h-16 md:w-16" />
-            <PaperCutHillsMint className="absolute bottom-0 left-0 right-0 h-20" />
           </div>
 
           {floatingProducts.map((slug, index) => {
